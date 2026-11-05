@@ -1,0 +1,8 @@
+# Scratch probes and measurement output. These are development ephemera: they
+# encode hypotheses and stale numbers, and a reader finding them in the repo
+# cannot tell which conclusions they actually supported.
+.tmp/
+
+# Bytecode from running the Python tools locally.
+__pycache__/
+*.pyc
