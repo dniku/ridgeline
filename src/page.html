@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Ridgeline — climb a hundred-floor tower. One file, no network, offline.">
+<meta name="theme-color" content="#0d0f12">
+<title>Ridgeline</title>
+<style>
+/* __RIDGELINE_CSS__ */
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="hud-row">
+      <span id="hud-floor" class="stat">F 1</span>
+      <span id="hud-zone" class="stat zone">Root Cellar</span>
+      <span id="hud-turn" class="stat dim">t 0</span>
+    </div>
+    <div class="bars">
+      <div class="bar hp"><div id="bar-hp" class="fill"></div><span id="txt-hp" class="bar-label">40/40</span></div>
+      <div class="bar xp"><div id="bar-xp" class="fill"></div><span id="txt-xp" class="bar-label">L1 0/10</span></div>
+    </div>
+  </header>
+
+  <main id="stage">
+    <canvas id="game" width="34" height="22" aria-label="Dungeon view"></canvas>
+    <div id="overlay" hidden></div>
+  </main>
+
+  <footer id="controls">
+    <div id="dpad" aria-label="Move">
+      <button class="key up" data-dir="n" aria-label="Move north">↑</button>
+      <div class="dpad-mid">
+        <button class="key left" data-dir="w" aria-label="Move west">←</button>
+        <button class="key wait" data-act="wait" aria-label="Wait a turn">·</button>
+        <button class="key right" data-dir="e" aria-label="Move east">→</button>
+      </div>
+      <button class="key down" data-dir="s" aria-label="Move south">↓</button>
+    </div>
+    <div id="quick" aria-label="Actions">
+      <button class="act" data-use="potion" aria-label="Drink a potion"><span class="g">!</span><span class="c" id="cnt-potion">0</span></button>
+      <button class="act" data-use="bomb" aria-label="Throw a bomb"><span class="g">o</span><span class="c" id="cnt-bomb">0</span></button>
+      <button class="act" data-use="torch" aria-label="Light a torch"><span class="g">F</span><span class="c" id="cnt-torch">0</span></button>
+      <button class="act" data-use="scroll" aria-label="Read a scroll"><span class="g">#</span><span class="c" id="cnt-scroll">0</span></button>
+      <button class="act" data-use="elixir" aria-label="Drink an elixir"><span class="g">?</span><span class="c" id="cnt-elixir">0</span></button>
+      <button class="act" data-use="wings" aria-label="Use wings"><span class="g">W</span><span class="c" id="cnt-wings">0</span></button>
+    </div>
+    <div id="weapon-line">
+      <span id="hud-weapon" class="stat">Sword</span>
+      <span id="hud-mana" class="stat dim"></span>
+    </div>
+  </footer>
+
+  <section id="log" aria-live="polite" aria-label="Messages"></section>
+</div>
+<script>
+/* __RIDGELINE_JS__ */
+</script>
+</body>
+</html>

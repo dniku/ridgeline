@@ -1,0 +1,296 @@
+/**
+ * Ridgeline sheet.
+ *
+ * Layout is a five-row grid — hud, stage, controls, log — where the stage row is
+ * `minmax(0, 1fr)`. That `minmax(0, ...)` is not decoration: a grid row defaults
+ * to content size, and a canvas contributes its intrinsic bitmap height, so a
+ * `1fr` row measured 422px inside a 239px wrapper and painted over the control
+ * bar, swallowing taps. The same reason appears as `overflow: hidden` on #stage.
+ *
+ * Touch targets are at least 44px because Android's own guidance is 48dp and the
+ * controls are the game: a control you cannot hit reliably is a control that does
+ * not exist.
+ */
+
+:root {
+  --bg: #0d0f12;
+  --panel: #15181d;
+  --edge: #262b33;
+  --ink: #d8dee7;
+  --dim: #7c8794;
+  --hp: #c9483f;
+  --xp: #4f83b1;
+  --accent: #c9a24a;
+  --good: #6fae62;
+}
+
+* { box-sizing: border-box; }
+
+/* [hidden] must mean hidden. `display: flex` here would otherwise beat the
+ * attribute's UA rule and leave the overlay painted while JS believed it gone. */
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Ridgeline Sans", ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.35;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: 6px;
+  height: 100vh;
+  height: 100dvh;
+  padding: calc(6px + env(safe-area-inset-top)) 8px calc(6px + env(safe-area-inset-bottom));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---------- HUD ---------- */
+
+#hud {
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.hud-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat { font-weight: 700; letter-spacing: 0.02em; }
+.stat.zone { color: var(--accent); font-weight: 400; }
+.stat.dim { color: var(--dim); font-weight: 400; margin-left: auto; }
+
+.bars { display: flex; gap: 8px; margin-top: 6px; }
+
+.bar {
+  position: relative;
+  flex: 1 1 0;
+  height: 18px;
+  background: #0a0c0f;
+  border: 1px solid var(--edge);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar .fill {
+  height: 100%;
+  width: 0%;
+  transition: width 120ms linear;
+}
+.bar.hp .fill { background: var(--hp); }
+.bar.xp .fill { background: var(--xp); }
+
+.bar-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 0 #000, 0 0 3px #000;
+}
+
+/* ---------- Stage ---------- */
+
+#stage {
+  position: relative;
+  background: #08090c;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+#game {
+  display: block;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+/* ---------- Controls ---------- */
+
+#controls {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+#weapon-line {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+#hud-weapon { color: var(--accent); }
+
+#dpad { display: grid; justify-items: center; gap: 4px; }
+.dpad-mid { display: flex; gap: 4px; }
+
+.key, .act {
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  background: #1d222a;
+  border: 1px solid #333a45;
+  border-radius: 8px;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.key:active, .act:active { background: #2b333e; border-color: var(--accent); }
+.key.wait { color: var(--dim); }
+
+#quick {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.act { position: relative; flex-direction: column; gap: 0; min-height: 46px; }
+.act .g { font-size: 17px; line-height: 1; }
+.act .c { font-size: 11px; color: var(--dim); line-height: 1; }
+.act[data-empty="1"] { opacity: 0.34; }
+
+/* ---------- Log ---------- */
+
+#log {
+  height: 4.6em;
+  overflow: hidden;
+  font-size: 12px;
+  color: var(--dim);
+  border-top: 1px solid var(--edge);
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#log p { margin: 0; }
+#log p.hurt { color: var(--hp); }
+#log p.kill { color: var(--good); }
+#log p.loot { color: var(--accent); }
+#log p.boss { color: #d1707f; font-weight: 700; }
+#log p.level { color: var(--xp); font-weight: 700; }
+#log p.death { color: var(--hp); font-weight: 700; }
+
+/* ---------- Overlay (title / help / dead / won) ---------- */
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 9, 12, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow: auto;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 16px 18px;
+  max-width: 34em;
+  width: 100%;
+}
+
+.card h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: 0.06em; }
+.card h2 { margin: 14px 0 4px; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
+.card p { margin: 0 0 8px; color: var(--ink); }
+.card .sub { color: var(--dim); }
+.card kbd {
+  font: inherit;
+  background: #1d222a;
+  border: 1px solid #333a45;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+.card .keys { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 13px; }
+.card .keys dt { color: var(--dim); }
+.card .keys dd { margin: 0; }
+
+.card .go {
+  font: inherit;
+  font-weight: 700;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  background: var(--accent);
+  color: #14161a;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.card .go:active { filter: brightness(1.12); }
+.card .ghost {
+  font: inherit;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  background: transparent;
+  color: var(--dim);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 12px;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.stats-grid b { color: var(--ink); }
+.stats-grid span { color: var(--dim); }
+
+/* ---------- Landscape: controls beside the map, not under it ---------- */
+
+@media (orientation: landscape) and (max-height: 560px) {
+  #app {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "hud hud"
+      "stage controls"
+      "log log";
+  }
+  #hud { grid-area: hud; }
+  #stage { grid-area: stage; }
+  #controls { grid-area: controls; grid-template-columns: auto; }
+  #quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #log { grid-area: log; height: 3.2em; }
+  .card { max-height: 92%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar .fill { transition: none; }
+}
