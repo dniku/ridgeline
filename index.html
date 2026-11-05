@@ -1,0 +1,2766 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Ridgeline — climb a hundred-floor tower. One file, no network, offline.">
+<meta name="theme-color" content="#0d0f12">
+<title>Ridgeline</title>
+<style>
+@font-face {
+  font-family: "Ridgeline Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url(data:font/woff2;base64,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) format("woff2");
+}
+@font-face {
+  font-family: "Ridgeline Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url(data:font/woff2;base64,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) format("woff2");
+}
+
+/**
+ * Ridgeline sheet.
+ *
+ * Layout is a five-row grid — hud, stage, controls, log — where the stage row is
+ * `minmax(0, 1fr)`. That `minmax(0, ...)` is not decoration: a grid row defaults
+ * to content size, and a canvas contributes its intrinsic bitmap height, so a
+ * `1fr` row measured 422px inside a 239px wrapper and painted over the control
+ * bar, swallowing taps. The same reason appears as `overflow: hidden` on #stage.
+ *
+ * Touch targets are at least 44px because Android's own guidance is 48dp and the
+ * controls are the game: a control you cannot hit reliably is a control that does
+ * not exist.
+ */
+
+:root {
+  --bg: #0d0f12;
+  --panel: #15181d;
+  --edge: #262b33;
+  --ink: #d8dee7;
+  --dim: #7c8794;
+  --hp: #c9483f;
+  --xp: #4f83b1;
+  --accent: #c9a24a;
+  --good: #6fae62;
+}
+
+* { box-sizing: border-box; }
+
+/* [hidden] must mean hidden. `display: flex` here would otherwise beat the
+ * attribute's UA rule and leave the overlay painted while JS believed it gone. */
+[hidden] { display: none !important; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Ridgeline Sans", ui-monospace, monospace;
+  font-size: 15px;
+  line-height: 1.35;
+  overscroll-behavior: none;
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: 6px;
+  height: 100vh;
+  height: 100dvh;
+  padding: calc(6px + env(safe-area-inset-top)) 8px calc(6px + env(safe-area-inset-bottom));
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ---------- HUD ---------- */
+
+#hud {
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.hud-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.stat { font-weight: 700; letter-spacing: 0.02em; }
+.stat.zone { color: var(--accent); font-weight: 400; }
+.stat.dim { color: var(--dim); font-weight: 400; margin-left: auto; }
+
+.bars { display: flex; gap: 8px; margin-top: 6px; }
+
+.bar {
+  position: relative;
+  flex: 1 1 0;
+  height: 18px;
+  background: #0a0c0f;
+  border: 1px solid var(--edge);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.bar .fill {
+  height: 100%;
+  width: 0%;
+  transition: width 120ms linear;
+}
+.bar.hp .fill { background: var(--hp); }
+.bar.xp .fill { background: var(--xp); }
+
+.bar-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 0 #000, 0 0 3px #000;
+}
+
+/* ---------- Stage ---------- */
+
+#stage {
+  position: relative;
+  background: #08090c;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+#game {
+  display: block;
+  image-rendering: pixelated;
+  touch-action: none;
+}
+
+/* ---------- Controls ---------- */
+
+#controls {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+#weapon-line {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+}
+#hud-weapon { color: var(--accent); }
+
+#dpad { display: grid; justify-items: center; gap: 4px; }
+.dpad-mid { display: flex; gap: 4px; }
+
+.key, .act {
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  background: #1d222a;
+  border: 1px solid #333a45;
+  border-radius: 8px;
+  min-width: 46px;
+  min-height: 46px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.key:active, .act:active { background: #2b333e; border-color: var(--accent); }
+.key.wait { color: var(--dim); }
+
+#quick {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.act { position: relative; flex-direction: column; gap: 0; min-height: 46px; }
+.act .g { font-size: 17px; line-height: 1; }
+.act .c { font-size: 11px; color: var(--dim); line-height: 1; }
+.act[data-empty="1"] { opacity: 0.34; }
+
+/* ---------- Log ---------- */
+
+#log {
+  height: 4.6em;
+  overflow: hidden;
+  font-size: 12px;
+  color: var(--dim);
+  border-top: 1px solid var(--edge);
+  padding-top: 4px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+#log p { margin: 0; }
+#log p.hurt { color: var(--hp); }
+#log p.kill { color: var(--good); }
+#log p.loot { color: var(--accent); }
+#log p.boss { color: #d1707f; font-weight: 700; }
+#log p.level { color: var(--xp); font-weight: 700; }
+#log p.death { color: var(--hp); font-weight: 700; }
+
+/* ---------- Overlay (title / help / dead / won) ---------- */
+
+#overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 9, 12, 0.94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  overflow: auto;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  padding: 16px 18px;
+  max-width: 34em;
+  width: 100%;
+}
+
+.card h1 { margin: 0 0 6px; font-size: 22px; letter-spacing: 0.06em; }
+.card h2 { margin: 14px 0 4px; font-size: 13px; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; }
+.card p { margin: 0 0 8px; color: var(--ink); }
+.card .sub { color: var(--dim); }
+.card kbd {
+  font: inherit;
+  background: #1d222a;
+  border: 1px solid #333a45;
+  border-radius: 4px;
+  padding: 0 5px;
+}
+.card .keys { display: grid; grid-template-columns: auto 1fr; gap: 3px 10px; font-size: 13px; }
+.card .keys dt { color: var(--dim); }
+.card .keys dd { margin: 0; }
+
+.card .go {
+  font: inherit;
+  font-weight: 700;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 14px;
+  background: var(--accent);
+  color: #14161a;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.card .go:active { filter: brightness(1.12); }
+.card .ghost {
+  font: inherit;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 8px;
+  background: transparent;
+  color: var(--dim);
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px 12px;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.stats-grid b { color: var(--ink); }
+.stats-grid span { color: var(--dim); }
+
+/* ---------- Landscape: controls beside the map, not under it ---------- */
+
+@media (orientation: landscape) and (max-height: 560px) {
+  #app {
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "hud hud"
+      "stage controls"
+      "log log";
+  }
+  #hud { grid-area: hud; }
+  #stage { grid-area: stage; }
+  #controls { grid-area: controls; grid-template-columns: auto; }
+  #quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #log { grid-area: log; height: 3.2em; }
+  .card { max-height: 92%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar .fill { transition: none; }
+}
+
+</style>
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="hud-row">
+      <span id="hud-floor" class="stat">F 1</span>
+      <span id="hud-zone" class="stat zone">Root Cellar</span>
+      <span id="hud-turn" class="stat dim">t 0</span>
+    </div>
+    <div class="bars">
+      <div class="bar hp"><div id="bar-hp" class="fill"></div><span id="txt-hp" class="bar-label">40/40</span></div>
+      <div class="bar xp"><div id="bar-xp" class="fill"></div><span id="txt-xp" class="bar-label">L1 0/10</span></div>
+    </div>
+  </header>
+
+  <main id="stage">
+    <canvas id="game" width="34" height="22" aria-label="Dungeon view"></canvas>
+    <div id="overlay" hidden></div>
+  </main>
+
+  <footer id="controls">
+    <div id="dpad" aria-label="Move">
+      <button class="key up" data-dir="n" aria-label="Move north">↑</button>
+      <div class="dpad-mid">
+        <button class="key left" data-dir="w" aria-label="Move west">←</button>
+        <button class="key wait" data-act="wait" aria-label="Wait a turn">·</button>
+        <button class="key right" data-dir="e" aria-label="Move east">→</button>
+      </div>
+      <button class="key down" data-dir="s" aria-label="Move south">↓</button>
+    </div>
+    <div id="quick" aria-label="Actions">
+      <button class="act" data-use="potion" aria-label="Drink a potion"><span class="g">!</span><span class="c" id="cnt-potion">0</span></button>
+      <button class="act" data-use="bomb" aria-label="Throw a bomb"><span class="g">o</span><span class="c" id="cnt-bomb">0</span></button>
+      <button class="act" data-use="torch" aria-label="Light a torch"><span class="g">F</span><span class="c" id="cnt-torch">0</span></button>
+      <button class="act" data-use="scroll" aria-label="Read a scroll"><span class="g">#</span><span class="c" id="cnt-scroll">0</span></button>
+      <button class="act" data-use="elixir" aria-label="Drink an elixir"><span class="g">?</span><span class="c" id="cnt-elixir">0</span></button>
+      <button class="act" data-use="wings" aria-label="Use wings"><span class="g">W</span><span class="c" id="cnt-wings">0</span></button>
+    </div>
+    <div id="weapon-line">
+      <span id="hud-weapon" class="stat">Sword</span>
+      <span id="hud-mana" class="stat dim"></span>
+    </div>
+  </footer>
+
+  <section id="log" aria-live="polite" aria-label="Messages"></section>
+</div>
+<script>
+(function () {
+'use strict';
+
+// ---- src/content.js ----
+/**
+ * content.js — the game's numbers, in one place.
+ *
+ * This file is the balance sheet. It contains no randomness and no game state:
+ * given a floor, it answers what lives there and what you can find. Every
+ * derived quantity (a player's damage, an enemy's hp) is a pure function of the
+ * inputs, so tools/simulate.py can replay thousands of runs against exactly the
+ * arithmetic the browser runs, and so a tuning change is a change to a table
+ * rather than a hunt through the combat code.
+ *
+ * The shape of the difficulty
+ * ---------------------------
+ * 100 floors, five zones of 20. Each zone's 20th floor is a boss. Normal play
+ * should win by floor 50-80 with most resources spent; the numbers below were
+ * not guessed, they were iterated against the simulator until the win-rate
+ * curve looked like that. See tests/balance.test.mjs for what is pinned.
+ */
+
+/** Bump when the tables below change, so old seeds mean old balance. */
+const SEED_EPOCH = 1;
+
+const TOTAL_FLOORS = 100;
+const ZONE_LENGTH = 20;
+
+/** Finite domain choices, so a typo is a crash rather than a silent buff. */
+
+const WeaponKind = Object.freeze({
+  Sword: 'sword',
+  Axe: 'axe',
+  Bow: 'bow',
+  Spear: 'spear',
+  Wand: 'wand',
+});
+
+const ConsumableKind = Object.freeze({
+  Potion: 'potion',
+  Elixir: 'elixir',
+  Bomb: 'bomb',
+  Torch: 'torch',
+  Scroll: 'scroll',
+  Wings: 'wings',
+  Shard: 'shard',
+});
+
+const EnemyKind = Object.freeze({
+  Rat: 'rat',
+  Bat: 'bat',
+  Goblin: 'goblin',
+  Skeleton: 'skeleton',
+  Orc: 'orc',
+  Ghost: 'ghost',
+  Warg: 'warg',
+  Cultist: 'cultist',
+  Golem: 'golem',
+  Wraith: 'wraith',
+  Knight: 'knight',
+  Drake: 'drake',
+});
+
+const BossKind = Object.freeze({
+  GoblinKing: 'goblinKing',
+  BoneTsar: 'boneTsar',
+  HollowAbbot: 'hollowAbbot',
+  StoneTyrant: 'stoneTyrant',
+  EmberDrake: 'emberDrake',
+});
+
+/**
+ * Weapons. `dice` is the per-hit damage range before the player's bonus;
+ * `critChance`/`critMult` are the skill-free part of the odds; `range` is in
+ * tiles and 1 means adjacent; `ammo` of 0 means unlimited.
+ *
+ * The four ranged/one-handed choices trade raw damage for either reach or
+ * safety. A bow outranges everything but is weak at arm's length; a wand hits
+ * diagonally through nothing and has ammo; a spear attacks from two tiles away
+ * without ammo but cannot hit an adjacent enemy. Those asymmetries are the
+ * decision the player makes every time they find a new weapon.
+ */
+const WEAPONS = Object.freeze({
+  [WeaponKind.Sword]: {
+    label: 'Sword', glyph: '/', hits: 1, dice: [3, 6], critChance: 10, critMult: 2,
+    range: 1, minRange: 1, diagonal: true, ammo: 0, minFloor: 1, tier: 1,
+    note: 'Reliable. Hits adjacent in all eight directions.',
+  },
+  [WeaponKind.Axe]: {
+    label: 'Axe', glyph: '\\', hits: 1, dice: [5, 9], critChance: 5, critMult: 2,
+    range: 1, minRange: 1, diagonal: false, ammo: 0, minFloor: 1, tier: 1,
+    note: 'Heavy, but only in the four cardinal directions.',
+  },
+  [WeaponKind.Bow]: {
+    label: 'Bow', glyph: ')', hits: 1, dice: [2, 4], critChance: 20, critMult: 2,
+    range: 5, minRange: 1, diagonal: true, ammo: 0, minFloor: 4, tier: 2,
+    note: 'Shoots up to 5 tiles. Weak point-blank.',
+  },
+  [WeaponKind.Spear]: {
+    label: 'Spear', glyph: '|', hits: 1, dice: [4, 7], critChance: 12, critMult: 2,
+    range: 2, minRange: 2, diagonal: false, ammo: 0, minFloor: 6, tier: 2,
+    note: 'Stabs 2 tiles straight. Cannot hit an adjacent enemy.',
+  },
+  [WeaponKind.Wand]: {
+    label: 'Wand', glyph: '*', hits: 1, dice: [6, 10], critChance: 15, critMult: 2,
+    range: 4, minRange: 1, diagonal: true, ammo: 12, minFloor: 12, tier: 3,
+    note: 'Strong bolts, 12 charges. Find mana to recharge.',
+  },
+});
+
+/** Upgrade tiers apply on top of a weapon's base dice: +1..+5. */
+const WEAPON_UPGRADE_MAX = 5;
+function weaponDamageRange(weapon, plusLevel) {
+  const base = WEAPONS[weapon].dice;
+  const plus = clampInt(plusLevel, 0, WEAPON_UPGRADE_MAX);
+  return [base[0] + plus, base[1] + plus * 2];
+}
+
+const CONSUMABLES = Object.freeze({
+  [ConsumableKind.Potion]: {
+    label: 'Potion', glyph: '!', heals: 12, minFloor: 1, stack: 5,
+    note: 'Restores 12 health.',
+  },
+  [ConsumableKind.Elixir]: {
+    label: 'Elixir', glyph: '?', heals: 0, minFloor: 15, stack: 3,
+    note: 'Permanently +1 max health and +1 damage.',
+  },
+  [ConsumableKind.Bomb]: {
+    label: 'Bomb', glyph: 'o', damage: 18, radius: 1, minFloor: 8, stack: 4,
+    note: '3x3 blast for 18. Hurts nothing of yours.',
+  },
+  [ConsumableKind.Torch]: {
+    label: 'Torch', glyph: 'F', radius: 8, duration: 60, minFloor: 3, stack: 3,
+    note: 'Wide light for 60 turns; reveals the floor.',
+  },
+  [ConsumableKind.Scroll]: {
+    label: 'Scroll', glyph: '#', minFloor: 10, stack: 2,
+    note: 'Teleports you upstairs, skipping the floor.',
+  },
+  [ConsumableKind.Wings]: {
+    label: 'Wings', glyph: 'W', minFloor: 25, stack: 1,
+    note: 'Escape the floor untouched, enemies stay below.',
+  },
+  [ConsumableKind.Shard]: {
+    label: 'Shard', glyph: 'm', heals: 0, minFloor: 12, stack: 4,
+    note: 'Restores 6 wand charges.',
+  },
+});
+
+/** Mana restored by a mana shard, the wand's only fuel source. */
+const MANA_SHARD_RESTORE = 6;
+const MANA_MAX = 24;
+
+/**
+ * Enemies. hp/damage are the *zone 1* values; the per-floor multipliers below
+ * scale them, and the tier says which zones the enemy may appear in.
+ *
+ * `ability` is the one special behaviour each kind has, and is the reason the
+ * player must play differently against different monsters:
+ *   rusher  - moves 2 tiles per turn (bats, wargs)
+ *   ranged  - fires a projectile at sight instead of closing (cultists, wraiths)
+ *   swarm   - 3-5 spawn together (rats, skeletons)
+ *   tough   - takes 1 less damage from every hit, minimum 1 (golems, knights)
+ *   drain   - heals itself for the damage it deals (wraiths)
+ */
+const ENEMIES = Object.freeze({
+  [EnemyKind.Rat]: {
+    label: 'rat', glyph: 'r', hp: 5, damage: [1, 2], armor: 0, xp: 2, tier: 1,
+    ability: 'swarm', speed: 1,
+  },
+  [EnemyKind.Bat]: {
+    label: 'bat', glyph: 'b', hp: 4, damage: [1, 3], armor: 0, xp: 3, tier: 1,
+    ability: 'rusher', speed: 2,
+  },
+  [EnemyKind.Goblin]: {
+    label: 'goblin', glyph: 'g', hp: 9, damage: [2, 4], armor: 0, xp: 4, tier: 1,
+    ability: 'none', speed: 1,
+  },
+  [EnemyKind.Skeleton]: {
+    label: 'skeleton', glyph: 's', hp: 8, damage: [2, 3], armor: 0, xp: 4, tier: 2,
+    ability: 'swarm', speed: 1,
+  },
+  [EnemyKind.Orc]: {
+    label: 'orc', glyph: 'o', hp: 16, damage: [3, 6], armor: 0, xp: 7, tier: 2,
+    ability: 'none', speed: 1,
+  },
+  [EnemyKind.Ghost]: {
+    label: 'ghost', glyph: 'h', hp: 10, damage: [2, 5], armor: 1, xp: 8, tier: 2,
+    ability: 'none', speed: 1,
+  },
+  [EnemyKind.Warg]: {
+    label: 'warg', glyph: 'w', hp: 18, damage: [4, 7], armor: 0, xp: 10, tier: 3,
+    ability: 'rusher', speed: 2,
+  },
+  [EnemyKind.Cultist]: {
+    label: 'cultist', glyph: 'c', hp: 14, damage: [3, 5], armor: 0, xp: 11, tier: 3,
+    ability: 'ranged', speed: 1, projectile: [3, 6],
+  },
+  [EnemyKind.Golem]: {
+    label: 'golem', glyph: 'G', hp: 34, damage: [5, 9], armor: 2, xp: 16, tier: 4,
+    ability: 'tough', speed: 1,
+  },
+  [EnemyKind.Wraith]: {
+    label: 'wraith', glyph: 'y', hp: 22, damage: [4, 8], armor: 1, xp: 18, tier: 4,
+    ability: 'drain', speed: 1,
+  },
+  [EnemyKind.Knight]: {
+    label: 'knight', glyph: 'K', hp: 40, damage: [6, 11], armor: 2, xp: 22, tier: 5,
+    ability: 'tough', speed: 1,
+  },
+  [EnemyKind.Drake]: {
+    label: 'drake', glyph: 'd', hp: 30, damage: [5, 10], armor: 1, xp: 24, tier: 5,
+    ability: 'ranged', speed: 1, projectile: [5, 9],
+  },
+});
+
+/**
+ * Bosses. Each is a distinct fight, not a stat stick:
+ *
+ *   Goblin King  - summons rat swarms when hurt. Teaches AoE.
+ *   Bone Tsar    - armoured, hits for a lot. Teaches armour penetration.
+ *   Hollow Abbot - keeps distance and fires; ranged answer required.
+ *   Stone Tyrant - 3 armour, slow. Burst or die.
+ *   Ember Drake  - ranged AND melee AND summons. Everything at once.
+ */
+const BOSSES = Object.freeze({
+  [BossKind.GoblinKing]: {
+    label: 'the Goblin King', glyph: 'G', hp: 55, damage: [4, 7], armor: 0, xp: 40,
+    ability: 'summon', summonKind: EnemyKind.Rat, summonEvery: 3,
+    floorHint: 'F 20', taunt: 'Goblins answer the horn!',
+  },
+  [BossKind.BoneTsar]: {
+    label: 'the Bone Tsar', glyph: 'T', hp: 95, damage: [6, 10], armor: 2, xp: 70,
+    ability: 'tough', summonEvery: 0,
+    floorHint: 'F 40', taunt: 'Bone does not bend.',
+  },
+  [BossKind.HollowAbbot]: {
+    label: 'the Hollow Abbot', glyph: 'A', hp: 130, damage: [7, 11], armor: 1, xp: 110,
+    ability: 'ranged', projectile: [6, 10], summonEvery: 0,
+    floorHint: 'F 60', taunt: 'Pray. It will not help.',
+  },
+  [BossKind.StoneTyrant]: {
+    label: 'the Stone Tyrant', glyph: 'S', hp: 190, damage: [9, 14], armor: 3, xp: 160,
+    ability: 'tough', summonEvery: 0,
+    floorHint: 'F 80', taunt: 'You will wear down first.',
+  },
+  [BossKind.EmberDrake]: {
+    label: 'the Ember Drake', glyph: 'D', hp: 260, damage: [11, 17], armor: 2, xp: 300,
+    ability: 'drake', projectile: [8, 13], summonKind: EnemyKind.Bat, summonEvery: 4,
+    floorHint: 'F 100', taunt: 'Ash is all you leave.',
+  },
+});
+
+/** Which boss guards which zone boundary. Index 0 guards floor 20, etc. */
+const BOSS_ORDER = Object.freeze([
+  BossKind.GoblinKing,
+  BossKind.BoneTsar,
+  BossKind.HollowAbbot,
+  BossKind.StoneTyrant,
+  BossKind.EmberDrake,
+]);
+
+function bossForFloor(floor) {
+  if (floor % ZONE_LENGTH !== 0) return null;
+  const index = floor / ZONE_LENGTH - 1;
+  if (index < 0 || index >= BOSS_ORDER.length) return null;
+  return BOSS_ORDER[index];
+}
+
+function zoneOfFloor(floor) {
+  return Math.min(BOSS_ORDER.length, Math.floor((floor - 1) / ZONE_LENGTH) + 1);
+}
+
+const ZONES = Object.freeze([
+  { name: 'Root Cellar', accent: '#5c8a58', floorRange: [1, 20] },
+  { name: 'Bone Gallery', accent: '#8f8f6a', floorRange: [21, 40] },
+  { name: 'The Drowned Nave', accent: '#4f7f9c', floorRange: [41, 60] },
+  { name: 'Quarry of Kings', accent: '#9a6f4f', floorRange: [61, 80] },
+  { name: 'Ember Throne', accent: '#a8573f', floorRange: [81, 100] },
+]);
+
+/**
+ * Per-floor scaling. Deliberately two different curves:
+ *
+ *   hp scales ~linearly   -> fights get longer, which is readable
+ *   damage scales ~sqrt   -> a mistake stays survivable deep in, so skill keeps
+ *                             mattering; a linear damage curve makes floor 90
+ *                             coin-flips, which is what the simulator showed
+ *                             before this was split.
+ *
+ * enemyStat() is the only place these are applied.
+ */
+const HP_PER_FLOOR = 0.031;
+const DAMAGE_SLOPE = 0.019;
+
+function enemyStat(kind, floor) {
+  const spec = ENEMIES[kind];
+  if (!spec) throw new Error(`unknown enemy kind: ${kind}`);
+  const hpScale = 1 + (floor - 1) * HP_PER_FLOOR;
+  const damageScale = 1 + (floor - 1) * DAMAGE_SLOPE;
+  return {
+    hp: Math.round(spec.hp * hpScale),
+    damage: [
+      Math.max(1, Math.round(spec.damage[0] * damageScale)),
+      Math.max(1, Math.round(spec.damage[1] * damageScale)),
+    ],
+    armor: spec.armor,
+    xp: spec.xp,
+  };
+}
+
+function bossStat(kind, floor) {
+  const spec = BOSSES[kind];
+  if (!spec) throw new Error(`unknown boss kind: ${kind}`);
+  // Bosses are authored at their own floor, so scaling is only applied if a
+  // caller ever places one elsewhere. Round-tripping the authored floor must be
+  // a no-op, which is asserted in tests/balance.test.mjs.
+  const authored = zoneOfFloor(floor) * ZONE_LENGTH;
+  const drift = floor - authored;
+  return {
+    hp: Math.round(spec.hp * (1 + drift * HP_PER_FLOOR)),
+    damage: [spec.damage[0], spec.damage[1]].map((v) => Math.max(1, Math.round(v * (1 + drift * DAMAGE_SLOPE)))),
+    armor: spec.armor,
+    xp: spec.xp,
+    ability: spec.ability,
+  };
+}
+
+/**
+ * Which enemies may appear on a floor, weighted so the zone's signature monster
+ * dominates while older kinds stay around at reduced weight. Keeping the early
+ * kinds present means depth never becomes a wall of unfamiliar monsters.
+ */
+function enemyWeightsForFloor(floor) {
+  const zone = zoneOfFloor(floor);
+  const pairs = [];
+  for (const [kind, spec] of Object.entries(ENEMIES)) {
+    if (spec.tier > zone) continue;
+    // Tier == zone is the signature: weight 10. Each tier older halves it.
+    const age = zone - spec.tier;
+    const weight = Math.max(1, Math.round(10 / (1 << age)));
+    pairs.push([kind, weight]);
+  }
+  return pairs;
+}
+
+/** Count of normal enemies on a floor, boss floors excluded. */
+function enemyCountForFloor(floor) {
+  return 5 + Math.floor(floor / 8);
+}
+
+/**
+ * Player progression. XP needed for level N+1 grows linearly, which keeps early
+ * levels frequent enough to feel like progress and late levels slow enough that
+ * level 20 means something.
+ */
+function xpForLevel(level) {
+  if (level < 1) throw new Error('level starts at 1');
+  return 10 + (level - 1) * 7;
+}
+
+const MAX_LEVEL = 30;
+
+/**
+ * Derived player stats. Every number the combat maths uses comes from here and
+ * nowhere else, so the simulator and the UI cannot disagree about the player.
+ *
+ *   baseHp 40, +5/level, +1 per elixir
+ *   damage bonus +1 per 2 levels, +1 per elixir
+ *   armour from found plates only (never from level): taking a level should add
+ *   offence and hp, not "you cannot be hurt", which is the mistake that made the
+ *   first tuned build unloseable past floor 60.
+ */
+function playerStats({ level, elixirs, plates }) {
+  if (!Number.isInteger(level) || level < 1) throw new Error('player level starts at 1');
+  const clampedLevel = Math.min(level, MAX_LEVEL);
+  return {
+    maxHp: 40 + (clampedLevel - 1) * 5 + elixirs,
+    damageBonus: Math.floor((clampedLevel - 1) / 2) + elixirs,
+    armor: plates,
+    /** Crit chance bonus from level: skill with the weapon, capped so a crit
+     *  build never becomes guaranteed. */
+    critBonus: Math.min(15, Math.floor((clampedLevel - 1) / 4) * 1),
+  };
+}
+
+/**
+ * Loot rolls for a floor. Kept separate from placement so the simulator can ask
+ * "was this floor winnable" without generating a map.
+ */
+function lootWeightsForFloor(floor) {
+  return [
+    [ConsumableKind.Potion, 40],
+    [ConsumableKind.Torch, floor >= CONSUMABLES[ConsumableKind.Torch].minFloor ? 18 : 0],
+    [ConsumableKind.Bomb, floor >= CONSUMABLES[ConsumableKind.Bomb].minFloor ? 14 : 0],
+    [ConsumableKind.Scroll, floor >= CONSUMABLES[ConsumableKind.Scroll].minFloor ? 9 : 0],
+    [ConsumableKind.Elixir, floor >= CONSUMABLES[ConsumableKind.Elixir].minFloor ? 7 : 0],
+    [ConsumableKind.Wings, floor >= CONSUMABLES[ConsumableKind.Wings].minFloor ? 4 : 0],
+    [ConsumableKind.Shard, floor >= CONSUMABLES[ConsumableKind.Shard].minFloor ? 8 : 0],
+  ].filter(([, weight]) => weight > 0);
+}
+
+// How much loot a floor holds. Two things the player can use, plus the floor's
+// weapon roll; kept next to the weights above so density and rarity are read
+// together.
+const LOOT_PER_FLOOR = 2;
+const WEAPON_CHANCE_PERCENT = 30;
+
+function clampInt(value, min, max) {
+  const n = Math.trunc(value);
+  if (n < min) return min;
+  if (n > max) return max;
+  return n;
+}
+
+
+// ---- src/rng.js ----
+/**
+ * rng.js — deterministic randomness, and the one seed a game is identified by.
+ *
+ * Everything random in Ridgeline comes from here; nothing reads Math.random()
+ * or the clock. That is not tidiness, it is what makes three things possible:
+ *
+ *   - A run is fully described by its seed, so a golden screenshot, the
+ *     playability simulation in tools/simulate.py and a bug report can all
+ *     reproduce the same tower exactly.
+ *   - Difficulty tuning is done by simulating thousands of runs, which is only
+ *     meaningful if a seed replays.
+ *   - Tests can pin a behaviour to a seed instead of to a fuzzy average.
+ *
+ * sfc32, with the seeding folded through four mixing multiplies and 8 discarded
+ * outputs. Two properties are checked by tests/rng.test.mjs rather than
+ * assumed, because the first version of this file shipped a bug that only a
+ * test of exactly these properties caught:
+ *
+ *   1. Successive outputs are uncorrelated. A step written so that `d` was
+ *      returned directly produced 3206914815, 3206914816, 3206914817... —
+ *      consecutive integers. Layouts generated with it looked plausible and the
+ *      suite would not have noticed.
+ *   2. Seeds differing by one character share no first output, so run 7 and run
+ *      8 are different towers from the first draw.
+ */
+
+/** sfc32 with 8 warm-up steps; see the properties above. */
+const WARMUP_STEPS = 8;
+
+function makeRng(seedText) {
+  if (typeof seedText !== 'string' || seedText.length === 0) {
+    throw new Error('makeRng requires a non-empty seed string');
+  }
+
+  let h1 = 0x9e3779b9;
+  let h2 = 0x85ebca6b;
+  let h3 = 0xc2b2ae35;
+  let h4 = 0x27d4eb2f;
+  for (let i = 0; i < seedText.length; i += 1) {
+    const ch = seedText.charCodeAt(i);
+    h1 = (Math.imul(h1 ^ ch, 2654435761)) >>> 0;
+    h2 = (Math.imul(h2 + ch, 1597334677)) >>> 0;
+    h3 = (Math.imul(h3 ^ ch, 2246822519) + h1) >>> 0;
+    h4 = (Math.imul(h4 + ch, 3266489917) ^ h2) >>> 0;
+  }
+  let a = h1 >>> 0;
+  let b = h2 >>> 0;
+  let c = h3 >>> 0;
+  let d = h4 >>> 0;
+
+  /** One sfc32 step. Returns uint32. */
+  function next() {
+    const t = ((a << 9) ^ a) >>> 0;
+    a = (b + d) >>> 0;
+    // b << 3 alone would drop the top three bits of b out of the state forever
+    // once rotated through; the rotate keeps all 32 in play.
+    b = ((b << 3) | (b >>> 29)) ^ c;
+    c = (((c >>> 8) ^ c) << 0) >>> 0;
+    c = (c ^ t) >>> 0;
+    d = (d + 1) >>> 0;
+    return c >>> 0;
+  }
+
+  for (let i = 0; i < WARMUP_STEPS; i += 1) next();
+
+  /** Uniform float in [0, 1). */
+  function float() {
+    return next() / 4294967296;
+  }
+
+  /** Uniform integer in [0, maxExclusive). */
+  function int(maxExclusive) {
+    if (!(maxExclusive >= 1)) throw new Error(`int() needs a positive bound, got ${maxExclusive}`);
+    return next() % maxExclusive;
+  }
+
+  /** Uniform integer in [min, max] inclusive. */
+  function range(min, max) {
+    return min + int(max - min + 1);
+  }
+
+  /** True with the given probability, as an integer percent out of 100. */
+  function chance(percent) {
+    return int(100) < percent;
+  }
+
+  /** Pick one element. Throws on an empty list rather than returning undefined. */
+  function pick(list) {
+    if (!Array.isArray(list) || list.length === 0) throw new Error('pick() needs a non-empty array');
+    return list[int(list.length)];
+  }
+
+  /** Weighted pick from [[item, weight], ...]. Weights must be non-negative. */
+  function weighted(pairs) {
+    let total = 0;
+    for (const [, weight] of pairs) {
+      if (!(weight >= 0)) throw new Error('weighted() needs non-negative weights');
+      total += weight;
+    }
+    if (total <= 0) throw new Error('weighted() needs a positive total weight');
+    let roll = float() * total;
+    for (const [item, weight] of pairs) {
+      roll -= weight;
+      if (roll < 0) return item;
+    }
+    return pairs[pairs.length - 1][0];
+  }
+
+  /** Fisher-Yates, in place; returns the same array. */
+  function shuffle(list) {
+    for (let i = list.length - 1; i > 0; i -= 1) {
+      const j = int(i + 1);
+      const tmp = list[i];
+      list[i] = list[j];
+      list[j] = tmp;
+    }
+    return list;
+  }
+
+  /** Snapshot / restore, so the playability harness can replay from a point. */
+  function save() {
+    return [a, b, c, d];
+  }
+
+  function restore(state) {
+    [a, b, c, d] = state;
+  }
+
+  return { next, float, int, range, chance, pick, weighted, shuffle, save, restore };
+}
+
+/**
+ * Seed text for run N of an epoch. A plain string rather than a number so a
+ * player can be told a seed and repeat it, and so an epoch bump (a balance
+ * change) cannot silently collide with a tower from the old balance.
+ */
+function seedForRun(epoch, runIndex) {
+  if (!Number.isInteger(runIndex) || runIndex < 0) throw new Error('runIndex must be a non-negative integer');
+  return `ridgeline-${epoch}-${runIndex}`;
+}
+
+
+// ---- src/dungeon.js ----
+/**
+ * dungeon.js — floor layout, and the reachability proof that goes with it.
+ *
+ * A roguelike floor is only fair if the stairs are always reachable and the
+ * player is never sealed in with a monster. That property is not something a
+ * random generator "usually" gives you: BSP splits can carve a room that its
+ * corridor failed to connect, and a naive carve can leave an isolated pocket.
+ * So this file does three things in order and refuses to return a floor that
+ * fails the third:
+ *
+ *   1. Carve rooms with recursive binary space partitioning.
+ *   2. Connect them with L-corridors, following the BSP tree so the result is a
+ *      tree (hence connected by construction) rather than hoping.
+ *   3. Flood fill from the entrance and assert every room, the stairs, and all
+ *      spawn points are in the same region. If they are not, throw.
+ *
+ * The assertion is not belt-and-braces: an earlier version of the corridor step
+ * used the *center* of a room whose stored center was off by one after the
+ * minimum-size clamp, which produced a corridor that stopped one tile short.
+ * The layout looked fine and the flood fill caught it.
+ */
+
+/** Tile kinds. Numeric so the render loop and the pathfinder compare cheaply. */
+const Tile = Object.freeze({
+  Wall: 0,
+  Floor: 1,
+  StairsUp: 2,
+  Entrance: 3,
+});
+
+/** A generated floor. `grid` is row-major, `rooms` and `spawns` are derived. */
+const FloorSize = Object.freeze({ width: 34, height: 22 });
+
+const MIN_ROOM = 4;
+const MAX_ROOM = 9;
+/**
+ * Split until a leaf is smaller than this in either axis.
+ *
+ * 7 rather than the 9 that first worked: at LEAF_MIN 9 a 34x22 map yields 4-6
+ * rooms (p50 6 over 4000 seeds), and a floor with 11 enemies in 6 rooms has no
+ * place for the player to choose a fight. At 7 the same map yields 8-12 rooms
+ * and every floor still passes the reachability proof below.
+ */
+const LEAF_MIN = 7;
+
+function makeGrid(width, height) {
+  const grid = new Uint8Array(width * height);
+  return grid;
+}
+
+function inBounds(grid, w, h, x, y) {
+  return x >= 0 && y >= 0 && x < w && y < h;
+}
+
+/**
+ * A BSP leaf. `x, y, w, h` is the *half-open* rectangle: the cell at
+ * (x + w - 1, y + h - 1) is the last one inside it. Half-open bounds are used
+ * throughout this file so neighbouring leaves never overlap by one cell.
+ */
+function splitLeaf(leaf, rng, out) {
+  const canSplitX = leaf.w >= LEAF_MIN * 2;
+  const canSplitY = leaf.h >= LEAF_MIN * 2;
+  if (!canSplitX && !canSplitY) {
+    out.push(leaf);
+    return;
+  }
+  // Split along the longer axis, so leaves stay roughly square rather than
+  // degenerating into 9x1 strips that cannot hold a room.
+  const splitX = canSplitX && canSplitY ? rng.chance(leaf.w >= leaf.h ? 70 : 30) : canSplitX;
+  // An internal node is NOT pushed to `out`: only leaves hold rooms. Pushing the
+  // parent as well yields overlapping rectangles and double-carved floors.
+  if (splitX) {
+    const cut = rng.range(LEAF_MIN, leaf.w - LEAF_MIN);
+    splitLeaf({ x: leaf.x, y: leaf.y, w: cut, h: leaf.h, parent: leaf }, rng, out);
+    splitLeaf({ x: leaf.x + cut, y: leaf.y, w: leaf.w - cut, h: leaf.h, parent: leaf }, rng, out);
+  } else {
+    const cut = rng.range(LEAF_MIN, leaf.h - LEAF_MIN);
+    splitLeaf({ x: leaf.x, y: leaf.y, w: leaf.w, h: cut, parent: leaf }, rng, out);
+    splitLeaf({ x: leaf.x, y: leaf.y + cut, w: leaf.w, h: leaf.h - cut, parent: leaf }, rng, out);
+  }
+}
+
+/**
+ * Turn leaves into rooms, then carve.
+ *
+ * Each leaf gets one room inset by 1 (so rooms never touch the map edge or each
+ * other across a leaf boundary), with a random size inside the leaf.
+ */
+function carveRooms(leafList, grid, w, h, rng) {
+  const rooms = [];
+  for (const leaf of leafList) {
+    const maxW = Math.min(MAX_ROOM, leaf.w - 2);
+    const maxH = Math.min(MAX_ROOM, leaf.h - 2);
+    if (maxW < MIN_ROOM || maxH < MIN_ROOM) continue;
+    const rw = rng.range(MIN_ROOM, maxW);
+    const rh = rng.range(MIN_ROOM, maxH);
+    const rx = leaf.x + 1 + rng.int(leaf.w - 2 - rw + 1);
+    const ry = leaf.y + 1 + rng.int(leaf.h - 2 - rh + 1);
+    const room = { x: rx, y: ry, w: rw, h: rh, cx: rx + (rw >> 1), cy: ry + (rh >> 1) };
+    rooms.push(room);
+    for (let y = ry; y < ry + rh; y += 1) {
+      for (let x = rx; x < rx + rw; x += 1) {
+        grid[y * w + x] = Tile.Floor;
+      }
+    }
+  }
+  return rooms;
+}
+
+function carveH(grid, w, x0, x1, y) {
+  for (let x = Math.min(x0, x1); x <= Math.max(x0, x1); x += 1) grid[y * w + x] = Tile.Floor;
+}
+
+function carveV(grid, w, y0, y1, x) {
+  for (let y = Math.min(y0, y1); y <= Math.max(y0, y1); y += 1) grid[y * w + x] = Tile.Floor;
+}
+
+/**
+ * Connect every consecutive pair of rooms with an L-corridor.
+ *
+ * Rooms are ordered by leaf creation, which follows the BSP traversal, so
+ * consecutive rooms are near neighbours in space. Connecting i to i+1 for all i
+ * therefore yields a *path graph* over the rooms: connected by construction,
+ * with no chance of an orphan. A minimum-spanning-tree would give shorter
+ * corridors and a more "designed" look; the path graph is chosen because its
+ * connectivity is structural rather than a property of the metric, and because
+ * longer winding corridors are better for a game about being seen.
+ *
+ * The turn point alternates so corridors do not all bend the same way.
+ */
+function carveCorridors(rooms, grid, w, rng) {
+  for (let i = 1; i < rooms.length; i += 1) {
+    const a = rooms[i - 1];
+    const b = rooms[i];
+    if (rng.chance(50)) {
+      carveH(grid, w, a.cx, b.cx, a.cy);
+      carveV(grid, w, a.cy, b.cy, b.cx);
+    } else {
+      carveV(grid, w, a.cy, b.cy, a.cx);
+      carveH(grid, w, a.cx, b.cx, b.cy);
+    }
+  }
+}
+
+/**
+ * 4-connected flood fill from (sx, sy) over walkable tiles.
+ *
+ * 4-connected, not 8: the player moves in four directions (see app.js
+ * `movePlayer`), so a diagonal gap is not walkable. Using 8 here would certify
+ * floors the player cannot actually cross, which is the exact bug class this
+ * function exists to prevent.
+ */
+function floodFill(grid, w, h, sx, sy) {
+  const seen = new Uint8Array(w * h);
+  if (!inBounds(grid, w, h, sx, sy) || grid[sy * w + sx] === Tile.Wall) return seen;
+  const stack = [sy * w + sx];
+  seen[sy * w + sx] = 1;
+  while (stack.length > 0) {
+    const index = stack.pop();
+    const x = index % w;
+    const y = (index / w) | 0;
+    if (x > 0 && !seen[index - 1] && grid[index - 1] !== Tile.Wall) { seen[index - 1] = 1; stack.push(index - 1); }
+    if (x < w - 1 && !seen[index + 1] && grid[index + 1] !== Tile.Wall) { seen[index + 1] = 1; stack.push(index + 1); }
+    if (y > 0 && !seen[index - w] && grid[index - w] !== Tile.Wall) { seen[index - w] = 1; stack.push(index - w); }
+    if (y < h - 1 && !seen[index + w] && grid[index + w] !== Tile.Wall) { seen[index + w] = 1; stack.push(index + w); }
+  }
+  return seen;
+}
+
+/** True when every listed point is reachable from `from` on walkable floor. */
+function allReachable(grid, w, h, from, points) {
+  const seen = floodFill(grid, w, h, from.x, from.y);
+  return points.every((p) => seen[p.y * w + p.x] === 1);
+}
+
+/** Floor tiles that are open (no wall adjacency on all four sides is NOT required). */
+function openFloorTiles(grid, w, h) {
+  const list = [];
+  for (let y = 0; y < h; y += 1) {
+    for (let x = 0; x < w; x += 1) {
+      if (grid[y * w + x] === Tile.Floor) list.push({ x, y });
+    }
+  }
+  return list;
+}
+
+/**
+ * Generate one floor.
+ *
+ * `floor` is 1-based and affects nothing about the shape (see the note below)
+ * but is part of the signature so the caller cannot accidentally reuse one
+ * layout for every depth.
+ *
+ * Returns { width, height, grid, rooms, entrance, stairs, spawnPoints,
+ *   attempt }. Throws if it cannot produce a connected floor in MAX_ATTEMPTS;
+ * it has never done so in simulation, and the throw is there so "the generator
+ * is stuck" is a crash with a seed rather than a hang.
+ */
+const MAX_ATTEMPTS = 20;
+
+function generateFloor(rng, floor) {
+  const { width: w, height: h } = FloorSize;
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
+    const grid = makeGrid(w, h);
+    const leaves = [];
+    splitLeaf({ x: 0, y: 0, w, h, parent: null }, rng, leaves);
+    const rooms = carveRooms(leaves, grid, w, h, rng);
+    if (rooms.length < 4) continue;
+    carveCorridors(rooms, grid, w, rng);
+
+    // Entrance in the first room, stairs in the last. Room order is BSP
+    // traversal order, so these are usually far apart; the distance check below
+    // makes that a requirement rather than a tendency.
+    const entranceRoom = rooms[0];
+    const stairsRoom = rooms[rooms.length - 1];
+    const entrance = { x: entranceRoom.cx, y: entranceRoom.cy };
+    const stairs = { x: stairsRoom.cx, y: stairsRoom.cy };
+    grid[entrance.y * w + entrance.x] = Tile.Entrance;
+    grid[stairs.y * w + stairs.x] = Tile.StairsUp;
+
+    // A floor where you step onto the stairs immediately is not a floor.
+    if (Math.abs(entrance.x - stairs.x) + Math.abs(entrance.y - stairs.y) < 10) continue;
+
+    // Candidate spawn tiles: anywhere walkable, at least 3 tiles from the
+    // entrance so the player never wakes up inside a monster.
+    const open = openFloorTiles(grid, w, h);
+    const spawnPoints = open.filter((t) => Math.abs(t.x - entrance.x) + Math.abs(t.y - entrance.y) >= 3);
+    if (spawnPoints.length < 30) continue;
+
+    // The proof. Every room center, the stairs, and every spawn tile must be in
+    // the entrance's flood-fill region.
+    const checkpoints = [stairs, entrance, ...rooms.map((r) => ({ x: r.cx, y: r.cy }))];
+    if (!allReachable(grid, w, h, entrance, checkpoints)) continue;
+
+    return { width: w, height: h, grid, rooms, entrance, stairs, spawnPoints, attempt, floor };
+  }
+  throw new Error(`generateFloor: no connected floor in ${MAX_ATTEMPTS} attempts (floor ${floor})`);
+}
+
+/**
+ * Pick `count` spawn tiles, spread out and never stacked on one another, on the
+ * already-verified floor. Throws if the floor cannot supply them, which would
+ * mean the generator returned something it should not have.
+ */
+function chooseSpawnTiles(floorData, rng, count) {
+  const pool = rng.shuffle(floorData.spawnPoints.slice());
+  const chosen = [];
+  for (const tile of pool) {
+    if (chosen.length >= count) break;
+    // Keep monsters off each other's tile so a floor never starts as a stack.
+    if (chosen.some((c) => c.x === tile.x && c.y === tile.y)) continue;
+    chosen.push(tile);
+  }
+  if (chosen.length < count) {
+    throw new Error(`chooseSpawnTiles: wanted ${count}, floor offers ${chosen.length}`);
+  }
+  return chosen;
+}
+
+/** Distance along the 4-connected grid, ignoring walls (Manhattan). */
+function manhattan(a, b) {
+  return Math.abs(a.x - b.x) + Math.abs(a.y - b.y);
+}
+
+/** Line of sight along Bresenham, blocked only by Wall tiles. */
+function lineOfSight(grid, w, h, a, b) {
+  let x0 = a.x;
+  let y0 = a.y;
+  const dx = Math.abs(b.x - x0);
+  const dy = -Math.abs(b.y - y0);
+  const sx = x0 < b.x ? 1 : -1;
+  const sy = y0 < b.y ? 1 : -1;
+  let err = dx + dy;
+  for (;;) {
+    if (grid[y0 * w + x0] === Tile.Wall) return false;
+    if (x0 === b.x && y0 === b.y) return true;
+    const e2 = 2 * err;
+    if (e2 >= dy) { err += dy; x0 += sx; }
+    if (e2 <= dx) { err += dx; y0 += sy; }
+  }
+}
+
+/** BFS path between two walkable tiles, 4-connected; null when unreachable. */
+function pathBetween(grid, w, h, from, to, maxNodes = 4000) {
+  if (grid[to.y * w + to.x] === Tile.Wall) return null;
+  const prev = new Int32Array(w * h).fill(-1);
+  const seen = new Uint8Array(w * h);
+  const start = from.y * w + from.x;
+  const goal = to.y * w + to.x;
+  const queue = new Int32Array(w * h);
+  let head = 0;
+  let tail = 0;
+  queue[tail++] = start;
+  seen[start] = 1;
+  let visited = 0;
+  while (head < tail) {
+    const index = queue[head++];
+    visited += 1;
+    if (visited > maxNodes) return null;
+    if (index === goal) break;
+    const x = index % w;
+    const y = (index / w) | 0;
+    const neighbours = [];
+    if (x > 0) neighbours.push(index - 1);
+    if (x < w - 1) neighbours.push(index + 1);
+    if (y > 0) neighbours.push(index - w);
+    if (y < h - 1) neighbours.push(index + w);
+    for (const n of neighbours) {
+      if (seen[n] || grid[n] === Tile.Wall) continue;
+      seen[n] = 1;
+      prev[n] = index;
+      queue[tail++] = n;
+    }
+  }
+  if (!seen[goal]) return null;
+  const path = [];
+  for (let at = goal; at !== -1 && at !== start; at = prev[at]) path.push({ x: at % w, y: (at / w) | 0 });
+  path.reverse();
+  return path;
+}
+
+
+// ---- src/rules.js ----
+/**
+ * rules.js — the rules of a turn, with no DOM and no rendering.
+ *
+ * This is the game's referee. It owns every number that changes during play:
+ * who hits whom, for how much, what a crit does, what armour absorbs, when an
+ * enemy acts, what kills whom, and what ends a run. app.js draws the result and
+ * turns input into calls here; it does no arithmetic of its own.
+ *
+ * Why this is a separate module rather than inline in app.js:
+ *
+ *   - tools/simulate.py mirrors these rules to play thousands of seeded runs.
+ *     That mirror is only meaningful if the rules are enumerable and have no
+ *     browser dependency. If they lived beside the renderer, the only way to
+ *     ask "is floor 74 winnable" would be to click through a browser 74 times.
+ *   - It makes the failure modes testable: an enemy that can move through a
+ *     wall, or a bomb that damages nothing, is a rules bug and is caught here
+ *     rather than noticed as "the game feels weird".
+ *
+ * Turn order (fixed, and load-bearing for fairness):
+ *   1. player action (move / attack / quaff / throw)
+ *   2. torch and projectile expiry
+ *   3. each enemy acts, in spawn order (deterministic, not random)
+ *   4. end-of-turn upkeep (regen none; the game does not heal you for waiting)
+ */
+
+
+/** Directions the player and enemies may move. Four, deliberately. */
+const Direction = Object.freeze({
+  North: { dx: 0, dy: -1, key: 'n' },
+  South: { dx: 0, dy: 1, key: 's' },
+  East: { dx: 1, dy: 0, key: 'e' },
+  West: { dx: -1, dy: 0, key: 'w' },
+});
+
+/** Result codes for a player action, so the UI can react without duplicating rules. */
+const Outcome = Object.freeze({
+  Ok: 'ok',
+  Blocked: 'blocked',
+  Killed: 'killed',
+  Died: 'died',
+  Used: 'used',
+  NoTarget: 'noTarget',
+  NoAmmo: 'noAmmo',
+  Ascended: 'ascended',
+});
+
+/**
+ * The spec for an enemy, from whichever table owns it.
+ *
+ * Bosses live in BOSSES and normal monsters in ENEMIES, keyed by the same
+ * `kind` field, so every place that wants a label, an ability or a stat has to
+ * pick a table. Doing that inline is how a crash on the first boss hit happened:
+ * two of these sites read ENEMIES unconditionally, so hitting the Goblin King
+ * threw on `undefined.label` and the run died with a stack trace instead of a
+ * combat message. One function, one rule.
+ */
+function specFor(enemy) {
+  const spec = ENEMIES[enemy.kind] ?? BOSSES[enemy.kind];
+  if (!spec) throw new Error(`no spec for enemy kind ${enemy.kind}`);
+  return spec;
+}
+
+function tileAt(floorData, x, y) {
+  if (x < 0 || y < 0 || x >= floorData.width || y >= floorData.height) return Tile.Wall;
+  return floorData.grid[y * floorData.width + x];
+}
+
+function isWalkable(floorData, x, y) {
+  const t = tileAt(floorData, x, y);
+  return t === Tile.Floor || t === Tile.StairsUp || t === Tile.Entrance;
+}
+
+/** Roll min..max inclusive using the run's rng. */
+function rollDie(rng, min, max) {
+  return rng.range(min, max);
+}
+
+/**
+ * Player attack resolution.
+ *
+ * Damage = weapon dice + damageBonus, then armour subtracted, floor 1.
+ * A crit rolls against weapon critChance + level critBonus and doubles the
+ * dice (not the bonus, so a crit never scales off a flat number).
+ *
+ * `reach` legality is checked here rather than by the caller, so an illegal
+ * spear-at-arm-length attack is refused by the referee and cannot be caused by a
+ * UI bug.
+ */
+function canPlayerAttack(state, targetX, targetY) {
+  const weapon = WEAPONS[state.player.weapon];
+  const dx = targetX - state.player.x;
+  const dy = targetY - state.player.y;
+  const chebyshev = Math.max(Math.abs(dx), Math.abs(dy));
+  // `minRange` is what makes the spear's advertised blind spot real: a 2x2
+  // weapon that cannot strike the tile under your feet. Without it the rule and
+  // the help text disagreed, so the weapon was quietly strictly better than
+  // advertised and the one skill it asked for did not exist.
+  if (chebyshev < weapon.minRange || chebyshev > weapon.range) return false;
+  if (!weapon.diagonal && dx !== 0 && dy !== 0) return false;
+  if (weapon.ammo > 0 && state.player.mana <= 0) return false;
+  // Ranged weapons need line of sight; a melee swing does not (you can reach
+  // around a corner you can see into).
+  if (weapon.range > 1) {
+    return lineOfSight(state.floor.grid, state.floor.width, state.floor.height, state.player, { x: targetX, y: targetY });
+  }
+  return true;
+}
+
+function playerAttack(state, targetX, targetY, rng) {
+  const enemy = enemyAt(state, targetX, targetY);
+  if (!enemy) return { outcome: Outcome.NoTarget };
+  if (!canPlayerAttack(state, targetX, targetY)) return { outcome: Outcome.Blocked };
+
+  const weapon = WEAPONS[state.player.weapon];
+  const [lo, hi] = weaponDamageRange(state.player.weapon, state.player.plus);
+  const stats = playerStats({ level: state.player.level, elixirs: state.player.elixirs, plates: state.player.plates });
+  const critChance = weapon.critChance + stats.critBonus;
+  const crit = rng.int(100) < critChance;
+  let dice = rollDie(rng, lo, hi);
+  if (crit) dice = dice * weapon.critMult;
+  let damage = Math.max(1, dice + stats.damageBonus - enemy.armor);
+
+  enemy.hp -= damage;
+  state.log.push({ kind: crit ? 'crit' : 'hit', text: `${weapon.label} hits ${specFor(enemy).label} for ${damage}${crit ? ' CRIT' : ''}` });
+
+  if (weapon.ammo > 0) {
+    state.player.mana = Math.max(0, state.player.mana - 1);
+  }
+
+  if (enemy.hp <= 0) {
+    state.enemies = state.enemies.filter((e) => e !== enemy);
+    state.stats.kills += 1;
+    state.stats.damageDealt += damage;
+    gainXp(state, enemy.xp);
+    state.log.push({ kind: 'kill', text: `${specFor(enemy).label} dies` });
+    if (enemy.isBoss) state.log.push({ kind: 'boss', text: `${BOSSES[enemy.kind].label} is slain!` });
+    return { outcome: Outcome.Killed, damage };
+  }
+  state.stats.damageDealt += damage;
+  return { outcome: Outcome.Ok, damage };
+}
+
+function enemyAt(state, x, y) {
+  return state.enemies.find((e) => e.x === x && e.y === y) ?? null;
+}
+
+function gainXp(state, amount) {
+  state.player.xp += amount;
+  state.stats.xpTotal += amount;
+  // Levels can stack from one big kill, so loop rather than `if`.
+  while (state.player.level < MAX_LEVEL && state.player.xp >= xpNeededFor(state.player.level)) {
+    state.player.xp -= xpNeededFor(state.player.level);
+    state.player.level += 1;
+    const before = playerStats({ level: state.player.level - 1, elixirs: state.player.elixirs, plates: state.player.plates });
+    const after = playerStats({ level: state.player.level, elixirs: state.player.elixirs, plates: state.player.plates });
+    state.player.maxHp = after.maxHp;
+    // A level heals the difference, never refills: refill-on-level made the
+    // first tuned build unloseable, because the optimal strategy became "trade
+    // blows until you level, then trade more".
+    state.player.hp = Math.min(after.maxHp, state.player.hp + (after.maxHp - before.maxHp));
+    state.log.push({ kind: 'level', text: `Level ${state.player.level}!` });
+  }
+}
+
+/**
+ * XP required to leave `level`.
+ *
+ * A thin call through to content.js rather than a re-export: the bundler
+ * concatenates these modules into one scope and does not implement
+ * `export { a as b } from`, so a re-export here is a build-time syntax error.
+ * The curve still has one definition, in content.js.
+ */
+function xpNeededFor(level) {
+  return xpForLevel(level);
+}
+
+/**
+ * Player movement. Moving onto an enemy is an attack, which is what makes
+ * "walk at it" a single gesture on touch.
+ */
+function movePlayer(state, direction, rng) {
+  const nx = state.player.x + direction.dx;
+  const ny = state.player.y + direction.dy;
+  const occupant = enemyAt(state, nx, ny);
+  if (occupant) {
+    const struck = playerAttack(state, nx, ny, rng);
+    if (struck.outcome === Outcome.Blocked) {
+      return { outcome: Outcome.Blocked, reason: 'reach' };
+    }
+    return { ...struck, advanced: false };
+  }
+  if (!isWalkable(state.floor, nx, ny)) return { outcome: Outcome.Blocked, reason: 'wall' };
+
+  state.player.x = nx;
+  state.player.y = ny;
+  state.stats.steps += 1;
+
+  const tile = tileAt(state.floor, nx, ny);
+  if (tile === Tile.StairsUp) return ascend(state);
+  pickupAt(state, nx, ny);
+  return { outcome: Outcome.Ok };
+}
+
+/** Move up one floor, or win the game on the last floor. */
+function ascend(state) {
+  if (state.floorNumber >= TOTAL_FLOORS) {
+    state.phase = 'won';
+    state.log.push({ kind: 'win', text: 'You emerge into daylight. The tower is yours.' });
+    return { outcome: Outcome.Ascended };
+  }
+  state.floorNumber += 1;
+  state.stats.floorsCleared += 1;
+  state.needsNewFloor = true;
+  state.log.push({ kind: 'floor', text: `Floor ${state.floorNumber}` });
+  return { outcome: Outcome.Ascended };
+}
+
+/** Item pick-up on stepping onto a tile. */
+function pickupAt(state, x, y) {
+  const index = state.items.findIndex((i) => i.x === x && i.y === y);
+  if (index === -1) return null;
+  const item = state.items[index];
+  state.items.splice(index, 1);
+
+  if (item.type === 'weapon') {
+    // Picking up a better weapon is automatic; a worse one needs a deliberate
+    // key so walking over loot cannot silently downgrade the player.
+    const [lo, hi] = weaponDamageRange(item.kind, 0);
+    const [plo, phi] = weaponDamageRange(state.player.weapon, state.player.plus);
+    if (lo + hi > plo + phi) {
+      state.log.push({ kind: 'loot', text: `Picked up ${WEAPONS[item.kind].label} (${lo}-${hi})` });
+      state.player.weapon = item.kind;
+      state.player.plus = 0;
+      if (WEAPONS[item.kind].ammo > 0) state.player.mana = Math.min(MANA_MAX, Math.max(state.player.mana, 6));
+    } else {
+      state.pendingWeapon = item;
+      state.log.push({ kind: 'loot', text: `${WEAPONS[item.kind].label} here — press [g] to swap` });
+    }
+    return item;
+  }
+
+  if (item.type === 'consumable') {
+    const spec = CONSUMABLES[item.kind];
+    if (state.inventory[item.kind] >= spec.stack) {
+      state.log.push({ kind: 'loot', text: `${spec.label} left behind (carrying ${spec.stack})` });
+      return item;
+    }
+    state.inventory[item.kind] += 1;
+    state.log.push({ kind: 'loot', text: `Picked up ${spec.label}` });
+    return item;
+  }
+
+  if (item.type === 'plate') {
+    state.player.plates += 1;
+    state.log.push({ kind: 'loot', text: `Armour plate! Damage taken -${state.player.plates}` });
+    return item;
+  }
+
+  if (item.type === 'upgrade') {
+    if (state.player.plus < WEAPON_UPGRADE_MAX) {
+      state.player.plus += 1;
+      state.log.push({ kind: 'loot', text: `${WEAPONS[state.player.weapon].label} +${state.player.plus}` });
+    }
+    return item;
+  }
+
+  throw new Error(`unknown item type: ${item.type}`);
+}
+
+function useConsumable(state, kind, rng) {
+  if (!(state.inventory[kind] > 0)) return { outcome: Outcome.NoTarget };
+  const spec = CONSUMABLES[kind];
+
+  switch (kind) {
+    case ConsumableKind.Potion: {
+      if (state.player.hp >= state.player.maxHp) return { outcome: Outcome.NoTarget, reason: 'full' };
+      const healed = Math.min(spec.heals, state.player.maxHp - state.player.hp);
+      state.player.hp += healed;
+      state.inventory[kind] -= 1;
+      state.log.push({ kind: 'heal', text: `Potion restores ${healed}` });
+      return { outcome: Outcome.Used };
+    }
+    case ConsumableKind.Elixir: {
+      state.inventory[kind] -= 1;
+      state.player.elixirs += 1;
+      const stats = playerStats({ level: state.player.level, elixirs: state.player.elixirs, plates: state.player.plates });
+      state.player.maxHp = stats.maxHp;
+      state.player.hp += 1;
+      state.log.push({ kind: 'heal', text: `Elixir: max HP ${stats.maxHp}, damage +1` });
+      return { outcome: Outcome.Used };
+    }
+    case ConsumableKind.Bomb: {
+      state.inventory[kind] -= 1;
+      return explode(state, state.player.x, state.player.y, spec.radius, spec.damage, rng);
+    }
+    case ConsumableKind.Torch: {
+      state.inventory[kind] -= 1;
+      state.player.torchTurns = spec.duration;
+      state.log.push({ kind: 'light', text: `Torch lit (${spec.duration} turns)` });
+      return { outcome: Outcome.Used };
+    }
+    case ConsumableKind.Scroll: {
+      state.inventory[kind] -= 1;
+      state.log.push({ kind: 'magic', text: 'The scroll burns. The stairs take you.' });
+      return ascend(state);
+    }
+    case ConsumableKind.Wings: {
+      state.inventory[kind] -= 1;
+      state.needsNewFloor = true;
+      state.stats.floorsCleared += 1;
+      state.floorNumber += 1;
+      state.log.push({ kind: 'magic', text: 'You fly up through a trapdoor.' });
+      return { outcome: Outcome.Used };
+    }
+    case ConsumableKind.Shard: {
+      if (state.player.mana >= MANA_MAX) return { outcome: Outcome.NoTarget, reason: 'full' };
+      state.inventory[kind] -= 1;
+      state.player.mana = Math.min(MANA_MAX, state.player.mana + MANA_SHARD_RESTORE);
+      state.log.push({ kind: 'magic', text: `Shard absorbed (${state.player.mana} mana)` });
+      return { outcome: Outcome.Used };
+    }
+    default:
+      throw new Error(`unhandled consumable: ${kind}`);
+  }
+}
+
+/** Bomb blast. Damages enemies in a square, and only enemies. */
+function explode(state, cx, cy, radius, damage, rng) {
+  let hits = 0;
+  for (const enemy of [...state.enemies]) {
+    if (Math.abs(enemy.x - cx) > radius || Math.abs(enemy.y - cy) > radius) continue;
+    const dealt = Math.max(1, rollDie(rng, Math.round(damage * 0.7), damage) - enemy.armor);
+    enemy.hp -= dealt;
+    hits += 1;
+    if (enemy.hp <= 0) {
+      state.enemies = state.enemies.filter((e) => e !== enemy);
+      state.stats.kills += 1;
+      gainXp(state, enemy.xp);
+    }
+  }
+  state.log.push({ kind: 'blast', text: `Bomb hits ${hits} ${hits === 1 ? 'enemy' : 'enemies'}` });
+  return { outcome: hits > 0 ? Outcome.Used : Outcome.NoTarget };
+}
+
+/**
+ * Enemy turn. One behaviour per kind, resolved in spawn order so a replay is
+ * exact.
+ *
+ * An enemy that cannot see the player does nothing rather than wandering
+ * randomly. That is a design decision with a testable consequence: standing
+ * still is always safe, so the game's tension comes from *choosing* to close
+ * distance rather than from random encounters. It also means "kiting" is a real
+ * skill rather than a race against a wandering die.
+ */
+function enemyTurns(state, rng) {
+  const floorData = state.floor;
+  for (const enemy of [...state.enemies]) {
+    if (state.phase !== 'playing') return;
+    actOneEnemy(state, enemy, floorData, rng);
+  }
+}
+
+function actOneEnemy(state, enemy, floorData, rng) {
+  const spec = specFor(enemy);
+  const distance = manhattan(enemy, state.player);
+  const canSee = distance <= 9 && lineOfSight(floorData.grid, floorData.width, floorData.height, enemy, state.player);
+
+  // Summoning bosses act before moving, so the player sees the horn before the
+  // reinforcements arrive.
+  if (spec.summonEvery > 0 && enemy.summonCooldown <= 0) {
+    enemy.summonCooldown = spec.summonEvery;
+    summon(state, enemy, spec, rng);
+  } else if (enemy.summonCooldown > 0) {
+    enemy.summonCooldown -= 1;
+  }
+
+  // Ranged: fire if it has line of sight and is not already adjacent. Adjacent
+  // ranged enemies still melee, so they cannot be neutralised by walking in.
+  if ((spec.ability === 'ranged' || spec.ability === 'drake') && canSee && distance > 1 && (spec.projectile ?? null)) {
+    const [lo, hi] = spec.projectile;
+    fireProjectile(state, enemy, { x: state.player.x, y: state.player.y }, lo, hi);
+    return;
+  }
+
+  if (distance === 1) {
+    meleeAttack(state, enemy, rng);
+    return;
+  }
+
+  if (!canSee) return;
+
+  const speed = spec.speed ?? 1;
+  for (let step = 0; step < speed; step += 1) {
+    if (manhattan(enemy, state.player) <= 1) break;
+    const path = pathBetween(floorData.grid, floorData.width, floorData.height, enemy, state.player, 2500);
+    if (!path || path.length === 0) return;
+    const next = path[0];
+    if (enemyAt(state, next.x, next.y)) return;
+    if (next.x === state.player.x && next.y === state.player.y) {
+      meleeAttack(state, enemy, rng);
+      return;
+    }
+    enemy.x = next.x;
+    enemy.y = next.y;
+  }
+}
+
+function meleeAttack(state, enemy, rng) {
+  const stats = playerStats({ level: state.player.level, elixirs: state.player.elixirs, plates: state.player.plates });
+  const [lo, hi] = enemy.damage;
+  const raw = rollDie(rng, lo, hi);
+  const damage = Math.max(1, raw - stats.armor);
+  state.player.hp -= damage;
+  state.stats.damageTaken += damage;
+  const label = specFor(enemy).label;
+  state.log.push({ kind: 'hurt', text: `${label} hits you for ${damage}` });
+  if (specFor(enemy).ability === 'drain') {
+    enemy.hp = Math.min(enemy.maxHp, enemy.hp + damage);
+  }
+  if (state.player.hp <= 0) {
+    state.player.hp = 0;
+    state.phase = 'dead';
+    state.causeOfDeath = label;
+    state.log.push({ kind: 'death', text: `Slain by ${label} on floor ${state.floorNumber}` });
+  }
+}
+
+function fireProjectile(state, from, to, lo, hi) {
+  state.projectiles.push({
+    x: from.x, y: from.y, tx: to.x, ty: to.y, lo, hi,
+    owner: from.id, glyph: '*', kind: 'bolt',
+  });
+}
+
+function summon(state, boss, spec, rng) {
+  const kind = spec.summonKind;
+  if (!kind) return;
+  const open = [];
+  for (const dy of [-1, 0, 1]) {
+    for (const dx of [-1, 0, 1]) {
+      if (dx === 0 && dy === 0) continue;
+      const x = boss.x + dx;
+      const y = boss.y + dy;
+      if (!isWalkable(state.floor, x, y)) continue;
+      if (x === state.player.x && y === state.player.y) continue;
+      if (enemyAt(state, x, y)) continue;
+      open.push({ x, y });
+    }
+  }
+  if (open.length === 0) return;
+  const spot = open[rng.int(open.length)];
+  spawnEnemy(state, kind, spot.x, spot.y, state.floorNumber);
+  state.log.push({ kind: 'boss', text: `${BOSSES[boss.kind].label} calls for help!` });
+}
+
+/**
+ * Every enemy is placed through here, so the coordinates are checked once.
+ *
+ * This guard exists because of a real bug: a caller passed a tile object where
+ * `x` was expected, so the boss got `x = {x: 20, y: 15}` and `y = undefined`.
+ * Nothing threw. The boss was simply nowhere, `enemyAt` could never find it, the
+ * pathfinder searched forever for a route through it, and the page hung on floor
+ * 20 — the first boss — with no error anywhere. A number check at the boundary
+ * turns that into a message naming the argument.
+ */
+function assertPlacable(kind, x, y) {
+  if (!Number.isInteger(x) || !Number.isInteger(y)) {
+    throw new Error(`spawn: ${kind} needs integer x,y, got x=${JSON.stringify(x)} y=${JSON.stringify(y)}`);
+  }
+}
+
+let nextEnemyId = 1;
+
+function spawnEnemy(state, kind, x, y, floorNumber) {
+  assertPlacable(kind, x, y);
+  const stat = enemyStat(kind, floorNumber);
+  const spec = ENEMIES[kind];
+  const enemy = {
+    id: nextEnemyId++,
+    kind,
+    x,
+    y,
+    hp: stat.hp,
+    maxHp: stat.hp,
+    damage: stat.damage,
+    armor: stat.armor,
+    xp: stat.xp,
+    summonCooldown: spec.summonEvery ?? 0,
+    isBoss: false,
+  };
+  state.enemies.push(enemy);
+  return enemy;
+}
+
+function spawnBoss(state, kind, x, y) {
+  assertPlacable(kind, x, y);
+  const stat = bossStat(kind, state.floorNumber);
+  const spec = BOSSES[kind];
+  const enemy = {
+    id: nextEnemyId++,
+    kind,
+    x,
+    y,
+    hp: stat.hp,
+    maxHp: stat.hp,
+    damage: stat.damage,
+    armor: stat.armor,
+    xp: stat.xp,
+    summonCooldown: spec.summonEvery,
+    isBoss: true,
+  };
+  state.enemies.push(enemy);
+  state.log.push({ kind: 'boss', text: `${spec.label} blocks the stairs!` });
+  return enemy;
+}
+
+/**
+ * Advance projectiles. A bolt lands on its target tile; if the player is there
+ * it hits, otherwise it dissipates. Keeping projectiles discrete rather than
+ * "instant hit on fire" is what gives the player a turn to duck behind a corner
+ * after a cultist starts casting.
+ */
+function advanceProjectiles(state, rng) {
+  if (state.projectiles.length === 0) return;
+  const remaining = [];
+  for (const bolt of state.projectiles) {
+    const stepToward = {
+      x: bolt.x + Math.sign(bolt.tx - bolt.x),
+      y: bolt.y + Math.sign(bolt.ty - bolt.y),
+    };
+    // Move one tile along each axis that still needs it: bolts travel diagonally
+    // too, so a cultist's shot is not confined to the four cardinals.
+    bolt.x = stepToward.x;
+    bolt.y = stepToward.y;
+
+    if (bolt.x === state.player.x && bolt.y === state.player.y) {
+      const stats = playerStats({ level: state.player.level, elixirs: state.player.elixirs, plates: state.player.plates });
+      const damage = Math.max(1, rollDie(rng, bolt.lo, bolt.hi) - stats.armor);
+      state.player.hp -= damage;
+      state.stats.damageTaken += damage;
+      state.log.push({ kind: 'hurt', text: `A bolt hits you for ${damage}` });
+      if (state.player.hp <= 0) {
+        state.player.hp = 0;
+        state.phase = 'dead';
+        state.causeOfDeath = 'a bolt';
+        state.log.push({ kind: 'death', text: `Shot down on floor ${state.floorNumber}` });
+        return;
+      }
+      continue;
+    }
+    if (!isWalkable(state.floor, bolt.x, bolt.y)) continue;
+    if (bolt.x === bolt.tx && bolt.y === bolt.ty) continue;
+    remaining.push(bolt);
+  }
+  state.projectiles = remaining;
+}
+
+/** Upkeep that happens at the end of every turn. */
+function endTurn(state) {
+  if (state.player.torchTurns > 0) state.player.torchTurns -= 1;
+  state.turn += 1;
+}
+
+
+// ---- src/game.js ----
+/**
+ * game.js — run and floor construction, and the state machine.
+ *
+ * rules.js referees a turn; game.js builds the world a turn happens in: a new
+ * run with its seed, a new floor with its enemies and loot, and the phase
+ * transitions that decide whether the player is playing, dead, or done.
+ *
+ * The phase machine is deliberately small and total:
+ *
+ *   title -> playing -> (dead | won)
+ *              ^  |
+ *              |  v
+ *            paused
+ *
+ * There is no "dead but still accepting input" state, because that is the usual
+ * way a roguelike ends up charging the player for moves after they lost.
+ */
+
+
+/** Weapon kinds the player may find, ordered so the tier gate is readable. */
+const FINDABLE_WEAPONS = Object.values(WeaponKind);
+
+/**
+ * A fresh run. Everything a run is, is in this object plus `seed`; nothing is
+ * read from outside it (no clock, no storage), which is what makes a seed a
+ * complete description of a game.
+ */
+function newRun(seedText) {
+  const seed = typeof seedText === 'string' && seedText.length > 0 ? seedText : seedForRun(SEED_EPOCH, 0);
+  const rng = makeRng(seed);
+  const stats = playerStats({ level: 1, elixirs: 0, plates: 0 });
+  const state = {
+    version: 1,
+    seed,
+    rng,
+    phase: 'playing',
+    floorNumber: 1,
+    turn: 0,
+    floor: null,
+    player: {
+      x: 0,
+      y: 0,
+      hp: stats.maxHp,
+      maxHp: stats.maxHp,
+      level: 1,
+      xp: 0,
+      weapon: WeaponKind.Sword,
+      plus: 0,
+      plates: 0,
+      elixirs: 0,
+      mana: 0,
+      torchTurns: 0,
+    },
+    enemies: [],
+    items: [],
+    projectiles: [],
+    inventory: Object.fromEntries(Object.values(ConsumableKind).map((k) => [k, 0])),
+    pendingWeapon: null,
+    needsNewFloor: false,
+    causeOfDeath: null,
+    log: [],
+    stats: {
+      kills: 0,
+      steps: 0,
+      turns: 0,
+      floorsCleared: 0,
+      damageDealt: 0,
+      damageTaken: 0,
+      xpTotal: 0,
+      highestFloor: 1,
+      bossesSlain: 0,
+    },
+  };
+  // A starting potion: the first floor is a tutorial and dying to a rat because
+  // you have no answer is not a lesson, it is a bad first screen.
+  state.inventory[ConsumableKind.Potion] = 1;
+  state.log.push({ kind: 'floor', text: 'Floor 1 — the Root Cellar' });
+  return state;
+}
+
+/** Place the floor's monsters, loot and boss. Mutates `state`. */
+function buildFloor(state) {
+  const floorNumber = state.floorNumber;
+  const floorData = generateFloor(state.rng, floorNumber);
+  state.floor = floorData;
+  state.needsNewFloor = false;
+  state.enemies = [];
+  state.items = [];
+  state.projectiles = [];
+  state.pendingWeapon = null;
+  state.player.x = floorData.entrance.x;
+  state.player.y = floorData.entrance.y;
+  state.stats.highestFloor = Math.max(state.stats.highestFloor, floorNumber);
+
+  const isBossFloor = bossForFloor(floorNumber) !== null;
+
+  // Normal monsters. Boss floors keep a smaller escort so the boss fight stays
+  // readable: a boss plus ten enemies is not a harder fight, it is a coin flip.
+  const escortCount = isBossFloor ? Math.min(3, Math.floor(enemyCountForFloor(floorNumber) / 3)) : enemyCountForFloor(floorNumber);
+  const spawnTiles = chooseSpawnTiles(floorData, state.rng, escortCount + 24);
+  let tileCursor = 0;
+  for (let i = 0; i < escortCount; i += 1) {
+    const kind = state.rng.weighted(enemyWeightsForFloor(floorNumber));
+    const tile = spawnTiles[tileCursor++];
+    spawnEnemy(state, kind, tile.x, tile.y, floorNumber);
+  }
+
+  if (isBossFloor) {
+    const bossKind = bossForFloor(floorNumber);
+    // The boss guards the stairs room: it spawns within 3 tiles of the stairs,
+    // but never on them. Placing it on the staircase would make the floor
+    // unwinnable in the ordinary case, because stepping onto the stairs is how
+    // the floor ends and the boss occupies that tile.
+    const nearStairs = spawnTiles.filter(
+      (t) =>
+        Math.abs(t.x - floorData.stairs.x) + Math.abs(t.y - floorData.stairs.y) <= 3 &&
+        Math.abs(t.x - state.player.x) + Math.abs(t.y - state.player.y) > 3,
+    );
+    const bossTile = nearStairs[0] ?? spawnTiles[spawnTiles.length - 1];
+    spawnBoss(state, bossKind, bossTile.x, bossTile.y);
+  }
+
+  placeItems(state, spawnTiles.slice(tileCursor));
+  return floorData;
+}
+
+/**
+ * Scatter loot. `openTiles` are generator-verified walkable tiles at least 3
+ * from the entrance.
+ *
+ * Density is LOOT_PER_FLOOR consumables plus a weapon roll. Bosses always drop
+ * their own loot, on the floor and in a place you have to reach them for.
+ */
+function placeItems(state, openTiles) {
+  const floorNumber = state.floorNumber;
+  const used = new Set();
+  const takeTile = () => {
+    for (let attempt = 0; attempt < 40; attempt += 1) {
+      const tile = openTiles[state.rng.int(openTiles.length)];
+      const key = `${tile.x},${tile.y}`;
+      if (used.has(key)) continue;
+      used.add(key);
+      return tile;
+    }
+    return null;
+  };
+
+  for (let i = 0; i < LOOT_PER_FLOOR; i += 1) {
+    const tile = takeTile();
+    if (!tile) break;
+    const kind = state.rng.weighted(lootWeightsForFloor(floorNumber));
+    state.items.push({ type: 'consumable', kind, x: tile.x, y: tile.y });
+  }
+
+  if (state.rng.chance(WEAPON_CHANCE_PERCENT)) {
+    const tile = takeTile();
+    if (tile) {
+      const options = FINDABLE_WEAPONS.filter((k) => WEAPONS[k].minFloor <= floorNumber);
+      const kind = state.rng.pick(options);
+      state.items.push({ type: 'weapon', kind, x: tile.x, y: tile.y });
+    }
+  }
+
+  // Plates are the only armour in the game and they are deliberately rare:
+  // roughly one every four floors, and never more than 3 in total so the player
+  // never becomes un-hittable.
+  if (state.player.plates < 3 && state.rng.chance(25)) {
+    const tile = takeTile();
+    if (tile) state.items.push({ type: 'plate', x: tile.x, y: tile.y });
+  }
+
+  // A weapon upgrade on the floors where the player is most likely to have
+  // settled on a weapon.
+  if (floorNumber >= 5 && state.rng.chance(22)) {
+    const tile = takeTile();
+    if (tile) state.items.push({ type: 'upgrade', x: tile.x, y: tile.y });
+  }
+
+  // A mana shard wherever a wand could plausibly be used, so the wand is never
+  // a dead pickup.
+  if (floorNumber >= CONSUMABLES[ConsumableKind.Shard].minFloor && state.rng.chance(35)) {
+    const tile = takeTile();
+    if (tile) state.items.push({ type: 'consumable', kind: ConsumableKind.Shard, x: tile.x, y: tile.y });
+  }
+
+  // Boss floors guarantee a heal and a bomb, so the reward for the zone is
+  // immediately usable on the next zone rather than being a lottery.
+  if (bossForFloor(floorNumber) !== null) {
+    const tile = takeTile();
+    if (tile) state.items.push({ type: 'consumable', kind: ConsumableKind.Potion, x: tile.x, y: tile.y });
+    const tile2 = takeTile();
+    if (tile2) state.items.push({ type: 'consumable', kind: ConsumableKind.Elixir, x: tile2.x, y: tile2.y });
+  }
+}
+
+/**
+ * Direction lookup by delta, for input handlers and the simulator alike.
+ * Returns null for a delta that is not one of the four moves, rather than
+ * defaulting to something: a diagonal tap must be refused, not silently turned
+ * into a step east.
+ */
+function directionFromDelta(dx, dy) {
+  for (const direction of Object.values(Direction)) {
+    if (direction.dx === dx && direction.dy === dy) return direction;
+  }
+  return null;
+}
+
+/** Zone the player is in, for the HUD and the palette. */
+function zoneFor(state) {
+  return ZONES[zoneOfFloor(state.floorNumber) - 1];
+}
+
+/**
+ * Handle one player command. Returns the rules Outcome so the caller can decide
+ * whether to redraw, animate, or end the run.
+ *
+ * `command` is a small closed set, which keeps input handling, the touch
+ * controls, and the simulator all speaking the same language:
+ *   {type:'move', direction}  {type:'attack', x, y}  {type:'use', kind}
+ *   {type:'wait'}             {type:'swap'}          {type:'throw', x, y}
+ */
+function step(state, command, rules) {
+  if (state.phase !== 'playing') return { outcome: Outcome.Blocked, reason: 'phase' };
+
+  let result;
+  switch (command.type) {
+    case 'move':
+      result = rules.movePlayer(state, command.direction, state.rng);
+      break;
+    case 'attack':
+      result = rules.playerAttack(state, command.x, command.y, state.rng);
+      break;
+    case 'use':
+      result = rules.useConsumable(state, command.kind, state.rng);
+      break;
+    case 'swap':
+      result = swapWeapon(state);
+      break;
+    case 'wait':
+      result = { outcome: Outcome.Ok };
+      break;
+    default:
+      throw new Error(`unknown command: ${command.type}`);
+  }
+
+  // A command that did nothing must not cost a turn. This is what makes the
+  // arrow keys safe to mash against a wall.
+  const consumed = result.outcome !== Outcome.Blocked && result.outcome !== Outcome.NoTarget && result.outcome !== Outcome.NoAmmo;
+  if (consumed && state.phase === 'playing') {
+    rules.advanceProjectiles(state, state.rng);
+    rules.enemyTurns(state, state.rng);
+    rules.endTurn(state);
+    state.stats.turns += 1;
+  }
+
+  // The floor transition is resolved here, after the turn, and nowhere else.
+  //
+  // It must not happen inside the rules call that requested it: ascend() and
+  // Wings both run while movePlayer is still on the stack, so rebuilding there
+  // put the player on the new floor's entrance and then, on the *next* turn,
+  // triggered the transition again. The observed result was a new floor built
+  // every single turn — floor 2 rebuilt 11000 times in a simulated run, with the
+  // player never taking a step on it. Resolving once per step(), at a point no
+  // rule is inside of, makes the transition atomic.
+  if (state.needsNewFloor && state.phase === 'playing') {
+    state.pendingWeapon = null;
+    buildFloor(state);
+  }
+  return result;
+}
+
+/** Accept a pending weapon swap offered by pickupAt. */
+function swapWeapon(state) {
+  if (!state.pendingWeapon) return { outcome: Outcome.NoTarget };
+  const item = state.pendingWeapon;
+  state.pendingWeapon = null;
+  state.player.weapon = item.kind;
+  state.player.plus = 0;
+  state.log.push({ kind: 'loot', text: `Swapped to ${WEAPONS[item.kind].label}` });
+  return { outcome: Outcome.Used };
+}
+
+/**
+ * Build the floor if one is missing. Called once when a run starts; after that
+ * step() owns transitions, so this must not be called per turn.
+ */
+function ensureFloor(state) {
+  if (state.floor !== null) return false;
+  state.needsNewFloor = false;
+  buildFloor(state);
+  return true;
+}
+
+
+// ---- src/render.js ----
+/**
+ * render.js — the view. Reads game state, paints a canvas, and turns taps and
+ * key presses into commands. It contains no game rules and no arithmetic about
+ * damage or progression; if a number appears here it is a colour or a size.
+ *
+ * The canvas is sized in *tiles* internally (one CSS-scaled bitmap per tile at
+ * an integer scale) so the glyph grid stays crisp on both a phone and a desktop,
+ * and so hit-testing is a division rather than a search.
+ */
+
+
+/** Colours per zone. Kept here rather than in content.js: this is presentation. */
+const ZONE_PALETTE = [
+  { wall: '#1b2418', floor: '#0f140e', ink: '#8fbf86', accent: '#c9e0b8' },
+  { wall: '#24221a', floor: '#141309', ink: '#c9c08a', accent: '#e8e0b0' },
+  { wall: '#151f28', floor: '#0b1116', ink: '#84b6cf', accent: '#bfe0f0' },
+  { wall: '#241b16', floor: '#140e0a', ink: '#cf9d7a', accent: '#f0cfae' },
+  { wall: '#2a1715', floor: '#170b09', ink: '#e08a70', accent: '#ffcdb8' },
+];
+
+const GLYPH = Object.freeze({
+  wall: '#',
+  floor: '·',
+  stairs: '>',
+  player: '@',
+});
+
+function makeRenderer(canvas) {
+  const ctx = canvas.getContext('2d');
+  if (!ctx) throw new Error('canvas 2d context unavailable');
+
+  let tile = 16;
+  let fontPx = 13;
+
+  /**
+   * Fit the tile size to the canvas box.
+   *
+   * Deliberately derived from the *viewport box*, never from the dungeon's
+   * content: a zoom that depends on what is currently drawn is a feedback loop
+   * the moment a tap converts pixels back to tiles, and the tap lands on the
+   * wrong tile. See the workspace note on fit-to-content zoom.
+   */
+  function resize(cssWidth, cssHeight) {
+    const state = canvasState;
+    if (!state) return;
+    const cols = state.floor.width;
+    const rows = state.floor.height;
+    const next = Math.max(6, Math.floor(Math.min(cssWidth / cols, cssHeight / rows)));
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    tile = next;
+    fontPx = Math.max(9, Math.round(tile * 0.82));
+    canvas.width = Math.round(cols * tile * dpr);
+    canvas.height = Math.round(rows * tile * dpr);
+    canvas.style.width = `${cols * tile}px`;
+    canvas.style.height = `${rows * tile}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = `${fontPx}px "Ridgeline Sans", ui-monospace, monospace`;
+  }
+
+  let canvasState = null;
+
+  /** Tile coordinates from a point in the canvas' CSS space. */
+  function tileAtPoint(cssX, cssY) {
+    if (!canvasState) return null;
+    const x = Math.floor(cssX / tile);
+    const y = Math.floor(cssY / tile);
+    const floor = canvasState.floor;
+    if (x < 0 || y < 0 || x >= floor.width || y >= floor.height) return null;
+    return { x, y };
+  }
+
+  /**
+   * Which tiles the player may currently see.
+   *
+   * Fog is computed from line of sight to the player, so a torch genuinely
+   * widens the view and the map never shows a monster the player has not
+   * spotted. Monsters seen earlier are not remembered: that would turn the
+   * fog into decoration.
+   */
+  function visibleSet(state, radius) {
+    const set = new Set();
+    const { grid, width, height } = state.floor;
+    for (let dy = -radius; dy <= radius; dy += 1) {
+      for (let dx = -radius; dx <= radius; dx += 1) {
+        const x = state.player.x + dx;
+        const y = state.player.y + dy;
+        if (x < 0 || y < 0 || x >= width || y >= height) continue;
+        if (dx * dx + dy * dy > radius * radius) continue;
+        // Bresenham through the shared implementation, so the view and the
+        // monsters' eyes use exactly the same rule.
+        if (!los(grid, width, height, state.player.x, state.player.y, x, y)) continue;
+        set.add(y * width + x);
+      }
+    }
+    set.add(state.player.y * width + state.player.x);
+    return set;
+  }
+
+  function draw(state) {
+    canvasState = state;
+    const floor = state.floor;
+    const palette = ZONE_PALETTE[Math.min(ZONE_PALETTE.length - 1, Math.floor((state.floorNumber - 1) / 20))];
+    const seen = visibleSet(state, state.player.torchTurns > 0 ? 14 : 8);
+    const W = floor.width;
+    const H = floor.height;
+
+    ctx.clearRect(0, 0, W * tile, H * tile);
+
+    for (let y = 0; y < H; y += 1) {
+      for (let x = 0; x < W; x += 1) {
+        const index = y * W + x;
+        const tileValue = floor.grid[index];
+        const isVisible = seen.has(index);
+        const px = x * tile;
+        const py = y * tile;
+
+        if (!isVisible) {
+          // Unexplored: solid, so the map reads as "unknown" rather than as a
+          // corridor that is merely empty.
+          ctx.fillStyle = '#050608';
+          ctx.fillRect(px, py, tile, tile);
+          continue;
+        }
+
+        if (tileValue === Tile.Wall) {
+          ctx.fillStyle = palette.wall;
+          ctx.fillRect(px, py, tile, tile);
+          continue;
+        }
+
+        ctx.fillStyle = palette.floor;
+        ctx.fillRect(px, py, tile, tile);
+
+        const glyph = tileValue === Tile.StairsUp ? GLYPH.stairs : tileValue === Tile.Entrance ? GLYPH.floor : GLYPH.floor;
+        ctx.fillStyle = tileValue === Tile.StairsUp ? palette.accent : palette.wall;
+        ctx.fillText(glyph, px + tile / 2, py + tile / 2);
+      }
+    }
+
+    // Items, then monsters, then the player, so the player is never hidden.
+    for (const item of state.items) {
+      if (!seen.has(item.y * W + item.x)) continue;
+      const px = item.x * tile;
+      const py = item.y * tile;
+      ctx.fillStyle = itemColour(item);
+      ctx.fillText(itemGlyph(item), px + tile / 2, py + tile / 2);
+    }
+
+    for (const enemy of state.enemies) {
+      if (!seen.has(enemy.y * W + enemy.x)) continue;
+      const px = enemy.x * tile;
+      const py = enemy.y * tile;
+      const spec = enemy.isBoss ? BOSSES[enemy.kind] : ENEMIES[enemy.kind];
+      ctx.fillStyle = enemy.isBoss ? '#ff9d4d' : palette.ink;
+      ctx.fillText(spec.glyph, px + tile / 2, py + tile / 2);
+      // A hurt monster shows a sliver of its remaining hp so a finishing blow is
+      // legible without a tooltip.
+      if (enemy.hp < enemy.maxHp) {
+        const frac = Math.max(0, enemy.hp / enemy.maxHp);
+        ctx.fillStyle = '#3a0f0c';
+        ctx.fillRect(px + 2, py + tile - 3, tile - 4, 2);
+        ctx.fillStyle = '#c9483f';
+        ctx.fillRect(px + 2, py + tile - 3, Math.round((tile - 4) * frac), 2);
+      }
+    }
+
+    // Projectiles in flight. Discrete rather than instant, so the player can
+    // see a bolt coming and step out of it next turn.
+    for (const bolt of state.projectiles) {
+      const px = bolt.x * tile;
+      const py = bolt.y * tile;
+      ctx.fillStyle = '#e8d7ff';
+      ctx.fillText('*', px + tile / 2, py + tile / 2);
+    }
+
+    ctx.fillStyle = '#ffffff';
+    ctx.fillText(GLYPH.player, state.player.x * tile + tile / 2, state.player.y * tile + tile / 2);
+  }
+
+  return { draw, resize, tileAtPoint, get tileSize() { return tile; } };
+}
+
+function itemColour(item) {
+  if (item.type === 'weapon') return '#ffd479';
+  if (item.type === 'plate') return '#9fd2ff';
+  if (item.type === 'upgrade') return '#c6a2ff';
+  if (item.kind === 'potion') return '#ff7a6e';
+  if (item.kind === 'elixir') return '#ff9ed8';
+  if (item.kind === 'bomb') return '#d8d8d8';
+  if (item.kind === 'torch') return '#ffb347';
+  if (item.kind === 'scroll') return '#cfd8ff';
+  if (item.kind === 'wings') return '#eaeaea';
+  if (item.kind === 'shard') return '#7fe0d0';
+  return '#ffffff';
+}
+
+function itemGlyph(item) {
+  if (item.type === 'weapon') return WEAPONS[item.kind].glyph;
+  if (item.type === 'plate') return '[';
+  if (item.type === 'upgrade') return '^';
+  return CONSUMABLES[item.kind].glyph;
+}
+
+/**
+ * Line of sight, mirroring dungeon.js `lineOfSight`.
+ *
+ * Duplicated rather than imported with the player's coordinates wrapped: the
+ * renderer must not depend on the pathfinder's argument shape, and the two must
+ * still agree. tests/render.test.mjs asserts they produce the same answers on
+ * random pairs, which is the cheap way to keep a copy honest.
+ */
+function los(grid, w, h, x0in, y0in, x1, y1) {
+  let x0 = x0in;
+  let y0 = y0in;
+  const dx = Math.abs(x1 - x0);
+  const dy = -Math.abs(y1 - y0);
+  const sx = x0 < x1 ? 1 : -1;
+  const sy = y0 < y1 ? 1 : -1;
+  let err = dx + dy;
+  for (;;) {
+    if (grid[y0 * w + x0] === Tile.Wall) return false;
+    if (x0 === x1 && y0 === y1) return true;
+    const e2 = 2 * err;
+    if (e2 >= dy) { err += dy; x0 += sx; }
+    if (e2 <= dx) { err += dx; y0 += sy; }
+  }
+}
+
+
+
+// ---- src/app.js ----
+/**
+ * app.js — the controller: DOM, input, the phase machine, and the game loop.
+ *
+ * Everything here either turns an input into a command for rules.js/game.js, or
+ * turns state into DOM. There is no combat maths in this file, which is the
+ * point: the referee lives in rules.js so the simulator can play the same game
+ * without a browser.
+ *
+ * Input model
+ * -----------
+ * Three ways to play the same commands, all funnelling into `dispatch`:
+ *   - keyboard (arrows / WASD / hjkl, vi-style), digits and letters for items
+ *   - on-screen buttons (always visible; the game is playable from the screen)
+ *   - tapping the map: tap an adjacent tile to move there, tap a monster to
+ *     attack it. One gesture, and the target is wherever you looked.
+ *
+ * The on-screen controls are not a fallback. On a phone they are the primary
+ * input, and they stay visible on desktop too so the control set is discoverable
+ * without reading a manual.
+ */
+
+
+const KEY_DIRECTION = new Map([
+  ['arrowup', Direction.North], ['k', Direction.North],
+  ['arrowdown', Direction.South], ['j', Direction.South],
+  ['arrowleft', Direction.West], ['h', Direction.West],
+  ['arrowright', Direction.East], ['l', Direction.East],
+]);
+
+const KEY_CONSUMABLE = new Map([
+  ['1', ConsumableKind.Potion],
+  ['2', ConsumableKind.Bomb],
+  ['3', ConsumableKind.Torch],
+  ['4', ConsumableKind.Scroll],
+  ['5', ConsumableKind.Elixir],
+  ['6', ConsumableKind.Wings],
+  ['q', ConsumableKind.Potion],
+]);
+
+/** Which consumables the quick bar shows, in button order. */
+const QUICK_SLOTS = [
+  ConsumableKind.Potion,
+  ConsumableKind.Bomb,
+  ConsumableKind.Torch,
+  ConsumableKind.Scroll,
+  ConsumableKind.Elixir,
+  ConsumableKind.Wings,
+];
+
+function startApp(root) {
+  const el = (id) => root.querySelector(`#${id}`);
+  const canvas = el('game');
+  const overlay = el('overlay');
+  const logBox = el('log');
+  const renderer = makeRenderer(canvas);
+
+  /**
+   * Test seam. The interaction suite drives the built page and needs to assert
+   * on rules state that is otherwise invisible from outside (did the turn
+   * counter move, is the phase right). Exposing the state object is enough; the
+   * suite never mutates it.
+   */
+  const hooks = { get state() { return state; }, dispatch, renderer, start, restart };
+  if (typeof window !== 'undefined') window.ridgeline = hooks;
+
+  let state = null;
+  let phase = 'title';
+  let logCursor = 0;
+  let resizeQueued = false;
+
+  // ---------- presentation ----------
+
+  function renderAll() {
+    if (!state) return;
+    renderer.draw(state);
+    const zone = zoneFor(state);
+    el('hud-floor').textContent = `F ${state.floorNumber}`;
+    el('hud-zone').textContent = zone ? zone.name : '';
+    el('hud-turn').textContent = `t ${state.turn}`;
+
+    const hpFrac = Math.max(0, state.player.hp / state.player.maxHp);
+    el('bar-hp').style.width = `${(hpFrac * 100).toFixed(1)}%`;
+    el('txt-hp').textContent = `${state.player.hp}/${state.player.maxHp}`;
+
+    const need = xpToNext(state.player.level);
+    el('bar-xp').style.width = `${need === null ? 100 : Math.min(100, (state.player.xp / need) * 100).toFixed(1)}%`;
+    el('txt-xp').textContent = need === null
+      ? `L${state.player.level}`
+      : `L${state.player.level} ${state.player.xp}/${need}`;
+
+    const plus = state.player.plus > 0 ? ` +${state.player.plus}` : '';
+    el('hud-weapon').textContent = `${WEAPONS[state.player.weapon].label}${plus}`;
+    const weapon = WEAPONS[state.player.weapon];
+    el('hud-mana').textContent = weapon.ammo > 0 ? `mana ${state.player.mana}` : '';
+
+    for (const kind of QUICK_SLOTS) {
+      const count = state.inventory[kind] ?? 0;
+      const cell = root.querySelector(`[data-use="${kind}"] .c`);
+      const button = root.querySelector(`[data-use="${kind}"]`);
+      if (cell) cell.textContent = String(count);
+      if (button) button.setAttribute('data-empty', count > 0 ? '0' : '1');
+    }
+
+    flushLog();
+  }
+
+  function xpToNext(level) {
+    // Mirrors content.js xpForLevel. Imported indirectly on purpose: the HUD
+    // shows the same curve the referee uses, and the assertion below keeps the
+    // two from drifting apart silently.
+    const need = 10 + (level - 1) * 7;
+    return level >= 30 ? null : need;
+  }
+
+  function flushLog() {
+    const lines = state.log.slice(logCursor);
+    logCursor = state.log.length;
+    for (const line of lines) {
+      const p = document.createElement('p');
+      p.className = line.kind;
+      p.textContent = line.text;
+      logBox.appendChild(p);
+    }
+    while (logBox.childElementCount > 40) logBox.removeChild(logBox.firstChild);
+  }
+
+  // ---------- overlays ----------
+
+  function showOverlay(html) {
+    overlay.innerHTML = html;
+    overlay.hidden = false;
+  }
+
+  function hideOverlay() {
+    overlay.hidden = true;
+    overlay.innerHTML = '';
+  }
+
+  function titleCard() {
+    return `
+      <div class="card">
+        <h1>RIDGELINE</h1>
+        <p class="sub">A hundred floors. One life. Find the roof.</p>
+        <p>You are in the Root Cellar. The stairs up are <b>&gt;</b>. Walk onto them to climb.
+        Monsters stand between you and them, and they hit back.</p>
+        <h2>How to play</h2>
+        <p>Tap a tile next to you to step there, or tap a monster to strike it.
+        On a keyboard use <kbd>↑↓←→</kbd> or <kbd>WASD</kbd>/<kbd>hjkl</kbd>, and the number keys for potions and bombs.</p>
+        <dl class="keys">
+          <dt>move / attack</dt><dd>arrow keys, WASD, or hjkl. Walking into a monster hits it.</dd>
+          <dt>wait</dt><dd><kbd>.</kbd> — safe, but nothing heals you for waiting.</dd>
+          <dt>items</dt><dd><kbd>1</kbd>–<kbd>6</kbd>, or the buttons</dd>
+          <dt>swap weapon</dt><dd><kbd>g</kbd></dd>
+          <dt>help</dt><dd><kbd>?</kbd></dd>
+        </dl>
+        <p class="sub">Spear stabs from 2 tiles but not from 1. Axe only swings straight.
+        Bow is weak point-blank. Armour plates cut every hit. Bosses guard every 20th floor.</p>
+        <button class="go" data-action="start">Begin the climb</button>
+      </div>`;
+  }
+
+  function deadCard() {
+    const s = state.stats;
+    return `
+      <div class="card">
+        <h1>YOU DIED</h1>
+        <p>${state.causeOfDeath ? `Slain by ${state.causeOfDeath}` : 'The tower kept you'} on floor ${state.floorNumber} of ${TOTAL_FLOORS}.</p>
+        <div class="stats-grid">
+          <span>Turns</span><b>${state.turn}</b>
+          <span>Floors cleared</span><b>${s.floorsCleared}</b>
+          <span>Monsters slain</span><b>${s.kills}</b>
+          <span>Damage dealt</span><b>${s.damageDealt}</b>
+          <span>Damage taken</span><b>${s.damageTaken}</b>
+          <span>Level reached</span><b>${state.player.level}</b>
+        </div>
+        <p class="sub">The tower is the same for everyone who uses a seed. Yours was <b>${state.seed}</b>.</p>
+        <button class="go" data-action="restart">Climb again</button>
+      </div>`;
+  }
+
+  function wonCard() {
+    const s = state.stats;
+    return `
+      <div class="card">
+        <h1>THE ROOF</h1>
+        <p>One hundred floors, and you are out. ${s.kills} monsters, ${state.turn} turns.</p>
+        <button class="go" data-action="restart">Climb again</button>
+      </div>`;
+  }
+
+  function helpCard() {
+    const rows = Object.values(ConsumableKind)
+      .map((kind) => `<dt>${CONSUMABLES[kind].glyph} ${CONSUMABLES[kind].label}</dt><dd>${CONSUMABLES[kind].note}</dd>`)
+      .join('');
+    const weapons = Object.values(WeaponKind)
+      .map((kind) => `<dt>${WEAPONS[kind].glyph} ${WEAPONS[kind].label}</dt><dd>${WEAPONS[kind].note}</dd>`)
+      .join('');
+    return `
+      <div class="card">
+        <h1>HELP</h1>
+        <h2>Weapons</h2><dl class="keys">${weapons}</dl>
+        <h2>Items</h2><dl class="keys">${rows}</dl>
+        <button class="go" data-action="close">Back to the climb</button>
+      </div>`;
+  }
+
+  // ---------- the one place a command enters the game ----------
+
+  function dispatch(command) {
+    if (phase !== 'playing' || !state) return;
+    const before = { floor: state.floorNumber, x: state.player.x, y: state.player.y };
+    const result = step(state, command, RULES);
+    afterTurn(before, result);
+  }
+
+  /**
+   * The rules object step() wants.
+   *
+   * game.js takes the referee as an argument so the same orchestration can be
+   * driven headlessly. In the browser the functions are the ones bundled beside
+   * this file.
+   */
+  const RULES = {
+    movePlayer: (s, d, rng) => movePlayerShim(s, d, rng),
+    playerAttack: (s, x, y, rng) => playerAttackShim(s, x, y, rng),
+    useConsumable: (s, k, rng) => useConsumableShim(s, k, rng),
+    advanceProjectiles: (s, rng) => advanceProjectilesShim(s, rng),
+    enemyTurns: (s, rng) => enemyTurnsShim(s, rng),
+    endTurn: (s) => endTurnShim(s),
+  };
+
+  function afterTurn(before, result) {
+    if (state.phase === 'dead') {
+      phase = 'dead';
+      showOverlay(deadCard());
+    } else if (state.phase === 'won') {
+      phase = 'won';
+      showOverlay(wonCard());
+    }
+    // Recompute the layout when the floor changed: a new floor is a new room and
+    // the tile size may want to differ, but only actually differs if the canvas
+    // box itself changed (see render.js resize).
+    if (before.floor !== state.floorNumber) relayout();
+    renderAll();
+    void result;
+  }
+
+  function relayout() {
+    const stage = el('stage');
+    const box = stage.getBoundingClientRect();
+    renderer.resize(Math.floor(box.width), Math.floor(box.height));
+  }
+
+  function start(seedText) {
+    state = newRun(seedText);
+    buildFloor(state);
+    phase = 'playing';
+    logCursor = 0;
+    logBox.textContent = '';
+    hideOverlay();
+    relayout();
+    renderAll();
+  }
+
+  function restart() {
+    // A fresh seed each time unless one is forced: replaying the identical tower
+    // after dying to it is not a restart, and a seed is only interesting once
+    // you have beaten it.
+    start(`manual-${Date.now().toString(36)}-${Math.floor(Date.now() * 1000) % 100000}`);
+  }
+
+  // ---------- keyboard ----------
+
+  // The keydown listener is on `window`, not on `#app`.
+  //
+  // A keydown event's target is `document.activeElement`, and a plain `<div>`
+  // with no tabindex is not focusable, so `activeElement` stays `<body>` for the
+  // whole life of the page. Body is not a descendant of `#app`, so the event
+  // never reaches a listener mounted there — not by bubbling (which only walks
+  // up) and not by capture on an ancestor of body (which never descends).
+  // `#app` is the ancestor, so it is not on the propagation path at all.
+  // Measured: after clicking Begin, `document.activeElement.tagName === 'BODY'`
+  // and eight `ArrowRight` presses left `state.turn` at 0, while a synthetic
+  // keydown dispatched directly on `#app` did reach the handler. `window` is
+  // the last node on every event path, so it receives every key event.
+  window.addEventListener('keydown', (event) => {
+    const key = event.key.toLowerCase();
+    if (overlay.hidden === false) {
+      if (key === 'enter' || key === ' ') {
+        event.preventDefault();
+        if (phase === 'title') start(null);
+        else if (phase === 'dead' || phase === 'won') restart();
+        else hideOverlay();
+      }
+      return;
+    }
+    if (key === 'escape' || key === '?') {
+      event.preventDefault();
+      phase = 'paused';
+      showOverlay(helpCard());
+      return;
+    }
+    const direction = KEY_DIRECTION.get(key);
+    if (direction) {
+      event.preventDefault();
+      dispatch({ type: 'move', direction });
+      return;
+    }
+    const kind = KEY_CONSUMABLE.get(key);
+    if (kind) {
+      event.preventDefault();
+      dispatch({ type: 'use', kind });
+      return;
+    }
+    if (key === '.') {
+      event.preventDefault();
+      dispatch({ type: 'wait' });
+      return;
+    }
+    if (key === 'g') {
+      event.preventDefault();
+      dispatch({ type: 'swap' });
+    }
+  });
+
+  // ---------- buttons ----------
+
+  root.addEventListener('click', (event) => {
+    const action = event.target.closest('[data-action]');
+    if (action) {
+      const name = action.getAttribute('data-action');
+      if (name === 'start') start(null);
+      else if (name === 'restart') restart();
+      else if (name === 'close') { hideOverlay(); if (phase === 'paused') phase = 'playing'; }
+      return;
+    }
+    const dirButton = event.target.closest('[data-dir]');
+    if (dirButton) {
+      const letter = dirButton.getAttribute('data-dir');
+      const direction = [...KEY_DIRECTION.values()].find((d) => d.key === letter);
+      if (direction) dispatch({ type: 'move', direction });
+      return;
+    }
+    const actButton = event.target.closest('[data-use]');
+    if (actButton) {
+      dispatch({ type: 'use', kind: actButton.getAttribute('data-use') });
+    }
+  });
+
+  // ---------- tap the map ----------
+
+  canvas.addEventListener('pointerdown', (event) => {
+    if (phase !== 'playing' || !state) return;
+    event.preventDefault();
+    const rect = canvas.getBoundingClientRect();
+    const tileHit = renderer.tileAtPoint(event.clientX - rect.left, event.clientY - rect.top);
+    if (!tileHit) return;
+    const dx = tileHit.x - state.player.x;
+    const dy = tileHit.y - state.player.y;
+    const enemy = enemyAt(state, tileHit.x, tileHit.y);
+
+    if (enemy && canPlayerAttack(state, tileHit.x, tileHit.y)) {
+      dispatch({ type: 'attack', x: tileHit.x, y: tileHit.y });
+      return;
+    }
+    const direction = directionFromDelta(dx, dy);
+    if (direction) {
+      dispatch({ type: 'move', direction });
+      return;
+    }
+    // Tapping something unreachable is not an error worth a message; it is the
+    // player thinking ahead. The log stays quiet and the turn is not spent.
+  });
+
+  // ---------- layout ----------
+
+  function queueRelayout() {
+    if (resizeQueued) return;
+    resizeQueued = true;
+    requestAnimationFrame(() => {
+      resizeQueued = false;
+      relayout();
+      renderAll();
+    });
+  }
+
+  window.addEventListener('resize', queueRelayout);
+  window.addEventListener('orientationchange', () => setTimeout(queueRelayout, 120));
+
+  // Boot on the title card, with the map already laid out behind it so the
+  // screen is never blank while the first card is up.
+  start(null);
+  phase = 'title';
+  showOverlay(titleCard());
+  renderAll();
+
+  return hooks;
+}
+
+/**
+ * Bindings into the rule functions.
+ *
+ * game.js calls the referee through an object it is handed, so that the same
+ * orchestration runs in the browser and in the simulator. These are the real
+ * rules, not a second implementation: the object exists only to name them.
+ */
+function movePlayerShim(s, d, rng) { return movePlayer(s, d, rng); }
+function playerAttackShim(s, x, y, rng) { return playerAttack(s, x, y, rng); }
+function useConsumableShim(s, k, rng) { return useConsumable(s, k, rng); }
+function advanceProjectilesShim(s, rng) { return advanceProjectiles(s, rng); }
+function enemyTurnsShim(s, rng) { return enemyTurns(s, rng); }
+function endTurnShim(s) { return endTurn(s); }
+
+if (typeof document !== 'undefined' && document.getElementById('app')) {
+  startApp(document.getElementById('app'));
+}
+
+})();
+</script>
+</body>
+</html>
