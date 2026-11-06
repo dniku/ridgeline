@@ -1,0 +1,75 @@
+# The same command as local development, in the same pinned toolchain. This is
+# deliberately not a second recipe with node and Playwright installed by hand:
+# a CI that defines "correct" differently from the local shell is a CI that
+# drifts.
+#
+# Engine is pinned, and `check.sh` takes it once: browser assertions and any
+# future baselines belong to one engine, because engines disagree about
+# sub-pixel text layout and a cross-engine "diff" of that is noise. Chromium and
+# WebKit are deliberately not added as extra matrix entries -- on this container
+# they cannot launch at all, and a suite that "passes" by skipping the browser
+# phases is worse than red. Run them by hand if you add a runner that can.
+#
+# Reproducibility caveat, stated rather than implied: this repo has no committed
+# flake.lock, so `nix develop` re-resolves nixpkgs and CI may run a newer node or
+# Playwright than a local run. If the artifact-hash step fails while the rebuild
+# passes locally, that drift is the first thing to suspect; close it with
+# `nix flake lock` and commit the lockfile.
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # Pinned to a released tag: an unpinned installer could change how nix
+      # resolves nixpkgs between runs.
+      - uses: cachix/install-nix-action@v31.11.3
+        with:
+          # Workaround for a transient cache.nixos.org failure: Nix's HTTP/2
+          # transport drops a NAR download mid-transfer ("curl error: Failed
+          # sending data to the peer"), the range-resume retry gets HTTP 416, and
+          # nix treats that as fatal. With fallback = false, "no substituter can
+          # build it" ends the job even though the build itself is fine. Two
+          # independent upstream reports:
+          # https://github.com/NixOS/infra/issues/1106 and
+          # https://github.com/DeterminateSystems/nix-src/issues/750 (backport of
+          # NixOS/nix#16722).
+          #
+          # Retirement condition: drop `http2 = false` once the runner's nix
+          # carries the fix, verified by a run that materialises the dev shell.
+          extra_nix_config: |
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+            http2 = false
+            fallback = true
+
+      # packages.default is the shipped artifact, so a broken package build has to
+      # be a red build. Nothing else in this job would catch it: the checklist
+      # runs `nix develop`, which never builds the package target.
+      - name: Build the package and check it matches the committed artifact
+        run: |
+          # Addressed by store path, not a result symlink: --no-link creates no
+          # symlink, so `result/index.html` is a missing file and that reads as a
+          # build error rather than a wrong path.
+          OUT=$(nix build --no-link --print-out-paths)
+          sha256sum "$OUT/index.html" index.html
+          test "$(sha256sum < "$OUT/index.html")" = "$(sha256sum < index.html)"
+
+      - name: Run the acceptance checklist
+        run: |
+          # Echoed so a failure log can be triaged without guessing: if this says
+          # fallback=false while the job died on a substituter error, the
+          # workaround above never reached the nix doing the download.
+          nix show-config | grep -E '^(fallback|http2) '
+          if ! nix develop --command ./check.sh --engine firefox; then
+            echo "::error::checklist failed. If the log shows 'HTTP error 416' or 'no substituter that can build it', this is the transient cache.nixos.org failure, not the app -- rerun the job."
+            exit 1
+          fi
