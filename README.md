@@ -72,7 +72,9 @@ neither a nix daemon nor a network. Fonts are pre-generated and committed under
   single-file guarantees), `reach.mjs` (geometry oracle), `climb.mjs` (difficulty
   curve), `simulate.mjs` (sight-limited bot), `fonts.py` (subsetting).
 - `tests/` — `rules.test.mjs` (28 rule contracts), `smoke.test.mjs` (boot, paint,
-  layout), `iframe.test.mjs` (sandboxed opaque origin).
+  layout), `iframe.test.mjs` (sandboxed opaque origin), `golden.test.mjs`
+  (per-engine pixel baselines; `--update` repaints them, and every new baseline
+  must be viewed before it is committed).
 
 ## What is verified
 
@@ -97,7 +99,10 @@ neither a nix daemon nor a network. Fonts are pre-generated and committed under
   floor-20 boss. That establishes a curve, not that a human will enjoy it.
 - **Chromium and WebKit were never exercised.** All browser checks ran on Firefox
   157 in-sandbox; the other two engines fail to launch here for container reasons.
-- **No golden screenshot suite**, so there is no regression net on pixels yet.
+- **Goldens assert the reduced-motion appearance.** The HP/XP bars animate
+  their width, and a screenshot mid-animation is not deterministic, so the
+  suite runs under `prefers-reduced-motion: reduce` (a path the app already
+  supports). The animated appearance itself is not covered by pixels.
 - **No win is recorded by any bot.** The tower is provably completable
   floor-by-floor; nobody has yet demonstrated a completed 100-floor run.
 

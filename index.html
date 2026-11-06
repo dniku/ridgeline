@@ -2405,7 +2405,30 @@ function startApp(root) {
    * counter move, is the phase right). Exposing the state object is enough; the
    * suite never mutates it.
    */
-  const hooks = { get state() { return state; }, dispatch, renderer, start, restart };
+  /**
+   * Test seam. The interaction and golden suites drive the built page and need
+   * to assert on rules state that is otherwise invisible from outside, and to
+   * reach the two overlays deterministically instead of clicking through the
+   * UI. Nothing here mutates state: these are the same functions the keyboard
+   * and buttons call.
+   */
+  const hooks = {
+    get state() { return state; },
+    dispatch,
+    /**
+     * Move by direction letter, so a scripted scene can name a direction
+     * ('n'/'s'/'e'/'w') without hardcoding a delta vector the app might change.
+     */
+    moveBy: (letter) => {
+      const direction = [...KEY_DIRECTION.values()].find((d) => d.key === letter);
+      if (direction) dispatch({ type: 'move', direction });
+    },
+    renderer,
+    start,
+    restart,
+    showTitle: () => { phase = 'title'; showOverlay(titleCard()); renderAll(); },
+    showHelp: () => { phase = 'paused'; showOverlay(helpCard()); renderAll(); },
+  };
   if (typeof window !== 'undefined') window.ridgeline = hooks;
 
   let state = null;

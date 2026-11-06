@@ -85,6 +85,12 @@ phase "browser smoke ($ENGINE)" ./tools/toolchain.sh node tests/smoke.test.mjs -
 #     really denies storage, so the pass cannot be vacuous.
 phase "sandboxed opaque-origin iframe ($ENGINE)" ./tools/toolchain.sh node tests/iframe.test.mjs --engine "$ENGINE"
 
+# 7c. Golden screenshots: pixel regression against baselines painted by this
+# engine. Deterministic by seed + fixed command script + reduced motion, and
+# sensitivity was verified by hand (recolouring --hp turns every scene red).
+# A missing baseline directory is a hard failure, never a skip.
+phase "golden screenshots ($ENGINE)" ./tools/toolchain.sh node tests/golden.test.mjs --engine "$ENGINE"
+
 if [[ $QUICK -eq 0 ]]; then
   # 8. Difficulty curve. Not an assertion of correctness: it prints the curve so
   #    a human can read it. Fails only if the oracle itself errors out.
