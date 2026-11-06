@@ -30,6 +30,15 @@
             # package, not package/index.mjs.
             PLAYWRIGHT_ENTRY = "${pkgs.playwright-driver}/index.mjs";
             PLAYWRIGHT_BROWSERS_PATH = "${pkgs.playwright-driver.browsers}";
+
+            # The source faces tools/fonts.py subsets, taken from the same
+            # nixpkgs as everything else here. fonts.py must not know the store
+            # path: the hash varies with the resolved revision, so a literal
+            # written on one machine cannot be found on another (this is what
+            # turned CI red while the font was sitting in the local store).
+            # `nix build` never regenerates fonts -- it embeds the committed
+            # base64 -- so only this shell needs the answer.
+            RIDGELINE_FONT_DIR = "${pkgs.dejavu_fonts}/share/fonts/truetype";
           };
 
           shellHook = ''

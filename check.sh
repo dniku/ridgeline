@@ -59,7 +59,17 @@ phase "fonts regenerate" ./tools/toolchain.sh bash -c '
   [ -n "$ft" ] || { echo "no fonttools site-packages in /nix/store"; exit 1; }
   [ -n "$br" ] || { echo "no brotli site-packages in /nix/store"; exit 1; }
   fbin=$(dirname "$(dirname "$ft")")/bin
-  PATH="$fbin:$PATH" PYTHONPATH="$ft:$br" python3 tools/fonts.py
+  # --rebuild writes the subsets; without it fonts.py verifies coverage and
+  # writes nothing, which is what a routine ./check.sh should do.
+  PATH="$fbin:$PATH" PYTHONPATH="$ft:$br" python3 tools/fonts.py --rebuild
+  # Regenerating must be byte-for-byte reproducible. The artifact embeds these
+  # committed base64 blobs, so a toolchain change that silently altered the
+  # subset would change what players see while every browser test still passed
+  # against freshly painted baselines. Compare before trusting the run.
+  git diff --exit-code -- build/ || {
+    echo "fonts.py did not reproduce the committed subsets -- see git diff build/"
+    exit 1
+  }
 '
 
 # 3. Build the single file.
