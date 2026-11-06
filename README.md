@@ -1,6 +1,17 @@
 # Ridgeline
 
+[![check](https://github.com/dniku/ridgeline/actions/workflows/check.yml/badge.svg)](https://github.com/dniku/ridgeline/actions/workflows/check.yml)
+
+**▶ [Play it now](https://raw.githack.com/dniku/ridgeline/main/index.html)** — no install, no network, nothing to build.
+
 Climb a hundred-floor tower. One life, one file, no network.
+
+*About that link: it is served by [raw.githack.com](https://raw.githack.com),
+somebody else's server, used here only because this game is one file that asks
+for nothing else. Expect a one-time External Content notice with an **Open the
+page** button, and up to a minute of cache after a push. The artifact is
+[`index.html`](index.html) in this repo — `file://` on a downloaded copy behaves
+identically, so the demo path is convenience, not the source of truth.*
 
 `index.html` is the whole game: all JavaScript, all CSS, and both font faces are
 inlined. It works from `file://`, from an offline copy, and from a sandboxed
@@ -103,14 +114,5 @@ neither a nix daemon nor a network. Fonts are pre-generated and committed under
 
 ## Demo link
 
-`index.html` is the artifact; the repo copy is what to trust. If you push this
-directory to GitHub, githack will serve it for clicking without any deploy:
-
-```
-https://raw.githack.com/<owner>/<repo>/<branch>/ridgeline/index.html
-```
-
-Use a commit SHA instead of `<branch>` for a link that cannot move. Note that
-this is somebody else's server — a convenience demo path, not a deployment.
-Prefer opening the file directly: it has no network dependencies, so
-`file://` works identically.
+At the top of this file. It is a convenience path through a third-party
+server; the repo's `index.html` is the artifact and works from `file://`.
