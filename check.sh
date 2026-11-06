@@ -12,8 +12,23 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 
+# Every phase runs or the script fails, and the engine is chosen once here so
+# the smoke, layout and iframe phases cannot disagree about which browser
+# produced their verdicts. Baselines and layout measurements belong to one
+# engine; passing the engine by hand to each test invites exactly that drift.
 QUICK=0
-[[ ${1:-} == --quick ]] && QUICK=1
+ENGINE=firefox
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --quick) QUICK=1 ;;
+    --engine) ENGINE=${2:-}; shift ;;
+    --engine=*) ENGINE=${1#--engine=} ;;
+    *) echo "unknown argument: $1" >&2; exit 2 ;;
+  esac
+  shift
+done
+[[ -n $ENGINE ]] || { echo "--engine needs a value" >&2; exit 2; }
+printf 'engine: %s\n' "$ENGINE"
 
 FAILED=0
 phase() {
@@ -64,11 +79,11 @@ phase "rules tests" ./tools/toolchain.sh node tests/rules.test.mjs
 phase "stairs always reachable" ./tools/toolchain.sh node tools/reach.mjs --floors 2000
 
 # 7. Browser smoke: boots, paints, lays out, in both device shapes.
-phase "browser smoke (firefox)" ./tools/toolchain.sh node tests/smoke.test.mjs --engine firefox
+phase "browser smoke ($ENGINE)" ./tools/toolchain.sh node tests/smoke.test.mjs --engine "$ENGINE"
 
 # 7b. The sandboxed opaque-origin iframe, with a control proving the frame
 #     really denies storage, so the pass cannot be vacuous.
-phase "sandboxed opaque-origin iframe" ./tools/toolchain.sh node tests/iframe.test.mjs --engine firefox
+phase "sandboxed opaque-origin iframe ($ENGINE)" ./tools/toolchain.sh node tests/iframe.test.mjs --engine "$ENGINE"
 
 if [[ $QUICK -eq 0 ]]; then
   # 8. Difficulty curve. Not an assertion of correctness: it prints the curve so
