@@ -78,7 +78,16 @@ neither a nix daemon nor a network. Fonts are pre-generated and committed under
 
 ## What is verified
 
+- **The whole checklist passes on CI**, on a runner that shares nothing with the
+  development machine: the pinned package builds and its `index.html` is
+  byte-identical to the committed one, then the ten phases below run in
+  `nix develop`. Badge at the top of this file.
 - **28 rule contracts** pass, including the ones that caught real bugs (see below).
+- **CI proves the fonts phase, not just local runs.** An earlier CI run died on
+  a hard-coded `/nix/store` font path, which is a nixpkgs-revision output and so
+  could not resolve on a different machine. That is fixed and CI-green, and the
+  fonts phase now also asserts that regenerating the embedded subsets reproduces
+  the committed bytes exactly.
 - **Every floor is completable.** 4000 generated floors, A* from entrance to
   stairs: 0 unreachable. Path length p50 = 42 tiles, p90 = 64.
 - **The artifact is self-contained**: no external `src`/`href`, both WOFF2 faces
