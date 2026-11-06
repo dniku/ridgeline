@@ -69,9 +69,11 @@ from ridgeline_text import BASE_CODEPOINTS, DESIGN_NON_ASCII, glyph_source_text 
 # here and died on CI with "font directory not found". Two independent reasons
 # that literal could never work, and each is the interesting one:
 #
-#   1. The hash is an output of a nixpkgs *revision*. This repo has no committed
-#      flake.lock, so CI resolves nixpkgs on its own and gets a different path
-#      for the same dejavu-fonts-2.37.
+#   1. The hash is an output of a nixpkgs *revision*. At the time CI resolved
+#      nixpkgs independently and got a different path for the same
+#      dejavu-fonts-2.37; a flake.lock is committed now, so local and CI agree,
+#      but the literal still could not survive a deliberate `nix flake update`
+#      and pinning bytes rather than paths remains the point.
 #   2. The truth being pinned is not the path but the *bytes*. Three different
 #      store paths on this one machine all hold a DejaVuSans.ttf whose sha256 is
 #      58568c88..., so "which store path" was never the meaningful question. The
