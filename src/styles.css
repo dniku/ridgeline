@@ -285,8 +285,28 @@ html, body {
   }
   #hud { grid-area: hud; }
   #stage { grid-area: stage; }
-  #controls { grid-area: controls; grid-template-columns: auto; }
-  #quick { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #controls {
+    grid-area: controls;
+    grid-template-columns: auto;
+    /* Height is the scarce axis in landscape: HUD + stage + log + controls must
+       share ~390px, and the controls column is only ~257px of it. Before the
+       sizes below it wanted ~295px, and a grid with no scroll container simply
+       spills -- the last two item buttons sat past the viewport bottom,
+       invisible and untappable. This is the guarantee for *shorter* viewports
+       than the one the sizes are fitted to, so the escape hatch stays even
+       though it should not be needed. A control you have to scroll for is bad;
+       a control that is not on screen at all is worse. */
+    overflow-y: auto;
+    min-height: 0;
+  }
+  #dpad { gap: 2px; }
+  #dpad .key { min-width: 42px; min-height: 38px; }
+  /* 3 columns x 2 rows instead of 2 x 3: two rows of item buttons, saving one
+     row of height, which is what landscape is actually short of. The glyphs are
+     one character each, so a narrower cell costs nothing readable. */
+  #quick { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; }
+  .act { min-height: 34px; padding: 2px; gap: 1px; }
+  .act .g { font-size: 15px; }
   #log { grid-area: log; height: 3.2em; }
   .card { max-height: 92%; }
 }

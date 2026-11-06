@@ -89,6 +89,43 @@ await withBrowser(engine, async (browser) => {
       // Controls must be reachable on screen.
       assert.ok(boxes.dpad.y >= 0 && boxes.dpad.bottom <= boxes.inner.h + 1, 'dpad on screen');
       assert.ok(boxes.quick.y >= 0 && boxes.quick.bottom <= boxes.inner.h + 1, 'quick bar on screen');
+
+      // Every individual control on screen *and* nothing scrollable hiding one.
+      // The container-level checks above passed while the two right-hand item
+      // buttons sat 17px below a 844x390 viewport, because the quick bar's own
+      // box was inside the screen while its children overflowed it -- and
+      // document scrollHeight was larger than clientHeight, so the page was
+      // scrolling to hide them. Box-of-container cannot see this; only the
+      // children and the scroll extent can.
+      const controls = await page.evaluate(() => {
+        const offscreen = [];
+        for (const el of document.querySelectorAll('#dpad button, #quick button')) {
+          const b = el.getBoundingClientRect();
+          if (b.bottom > innerHeight + 1 || b.right > innerWidth + 1 || b.y < -1 || b.x < -1) {
+            offscreen.push(el.getAttribute('aria-label') ?? el.textContent.trim());
+          }
+        }
+        // Only the containers that hold controls. Checking every element in the
+        // tree finds inline text spans whose line box rounds 1-2px taller than
+        // their content box (a 13px scrollHeight on an 11px line), which is not
+        // a clipped control and would make the assertion permanently red.
+        const scrollable = ['#app', '#controls', '#dpad', '#quick', '#stage']
+          .filter((sel) => {
+            const el = document.querySelector(sel);
+            return el && el.scrollHeight > el.clientHeight + 1;
+          });
+        return {
+          dpad: document.querySelectorAll('#dpad button').length,
+          quick: document.querySelectorAll('#quick button').length,
+          offscreen,
+          scrollable,
+        };
+      });
+      assert.equal(controls.dpad, 5, 'four directions plus wait are present');
+      assert.equal(controls.quick, 6, 'all six item slots are present');
+      assert.deepEqual(controls.offscreen, [], 'every control is fully on screen');
+      assert.deepEqual(controls.scrollable, [], 'no control is hidden behind a scroll');
+
       assert.deepEqual(problems, []);
       await context.close();
     });
